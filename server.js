@@ -1,19 +1,26 @@
 var Global = {};
+Global.conSockets = [];
 var modbus = require("jsmodbus");
 var mysql = require("mysql");
-var socket = require('socket.io-client')('http://10.210.30.148:8080');
-socket.on('connect', function(){
+var socketServ = require('socket.io').listen(3000);
+var socketCl = require('socket.io-client')('http://10.210.30.148:8000');
+socketCl.on('connect', function(){
     console.log("client connected to server");
 });
-socket.on('connect_error', function(){
+socketCl.on('connect_error', function(){
     console.log("client error");
 });
-socket.on('connect_timeout', function(){
+socketCl.on('connect_timeout', function(){
     console.log("client timeout");
 });
-socket.on('msg', function(data){
+socketCl.on('msg', function(data){
     console.log("data:"+data.data);
 });
+
+socketServ.on("connection",function(socket){
+    console.log("client FE connected");
+});
+
 
 var client = modbus.client.tcp.complete({ 
         'host'              : "10.210.30.116", 
@@ -31,7 +38,7 @@ var pool  = mysql.createPool({
     database : 'flow_p'
 });
 
-//client.connect();
+client.connect();
 
 
 pool.on("connection", function(connection){
@@ -41,16 +48,23 @@ pool.on("connection", function(connection){
 // reconnect with client.reconnect()
 
 client.on('connect', function () {
-    console.log("connected");
+    console.log("PLC connected");
     pool.getConnection(function(err, connection) {
-        Global.connection = connection;
-        Global.schedullerTube = setInterval(function(){
-            rcvTubes();            
-        },3000);
+        if(err){
+            socketServ.sockets.emit("mysql_error",{});
+        }else{
+            socketServ.sockets.emit("all_ok",{});
+            Global.connection = connection;
+            Global.schedullerTube = setInterval(function(){
+                rcvTubes();  
+                //console.log(process.memoryUsage().heapUsed);
+            },1000);
+        }    
     });
 });
 
 client.on('error', function (err) {
+    socketServ.sockets.emit("mb_error",{});
     console.log("ERROR MODBUS");
     console.log(err);
     if(Global.connection){
@@ -63,22 +77,81 @@ client.on('error', function (err) {
 });
 
 function rcvTubes(){
-    client.readInputRegisters(15, 2).then(function (resp) {
-        console.log(resp);
-        var tube1 = WordToFloat(resp.register[1],resp.register[0]).toFixed(2);
-        console.log("tube1 = "+tube1);
-        var tmpQ = "INSERT INTO `tube1_dump`(value) VALUES("+tube1+")";
-        console.log(tmpQ);
-        Global.connection.query(tmpQ,function(err,data,row){
-            console.log(data);
-        });
+    client.readInputRegisters(15, 8).then(function (resp) {
+        //console.log(resp);
+        var res = [];
+        res[0] = WordToFloat(resp.register[1],resp.register[0]).toFixed(2);
+        res[1] = WordToFloat(resp.register[3],resp.register[2]).toFixed(2);
+        res[2] = WordToFloat(resp.register[5],resp.register[4]).toFixed(2);
+        res[3] = WordToFloat(resp.register[7],resp.register[6]).toFixed(2);
+        console.log("1:"+res[0]+" 2:"+res[1]+" 3:"+res[2]+" 4:"+res[3]+" heap = "+process.memoryUsage().heapUsed);
+        var nowdt = Date.now();
+        DBWriter(res,nowdt);
     }).fail(function(e){
-        console.log("fail");
-        console.log(e);
+        if(Global.schedullerTube){
+            clearInterval(Global.schedullerTube);
+        }
+        socketServ.sockets.emit("mb_error",{});
     });
 };
 //console.log("hello world");
+//socketServ.sockets.emit("all_ok",{"tube1":[Number(nowdt),Number(tube1)]});
 //----------------------------------
+function DBWriter(data,nowdt){
+    var tmpQ = "";
+    if(data!=undefined){
+        if(data[0]!=undefined){
+            tmpQ = "INSERT INTO `tube1_dump`(value,utc) VALUES("+data[0]+","+nowdt+")";
+            Global.connection.query(tmpQ,function(err,data,row){
+                //console.log(data);
+                if(err){
+                    console.log(err);
+                    socketServ.sockets.emit("mysql_error",{});
+                }
+            });
+        }
+        if(data[1]!=undefined){
+            tmpQ = "INSERT INTO `tube2_dump`(value,utc) VALUES("+data[1]+","+nowdt+")";
+            Global.connection.query(tmpQ,function(err,data,row){
+                //console.log(data);
+                if(err){
+                    console.log(err);
+                    socketServ.sockets.emit("mysql_error",{});
+                }
+            });
+        }
+        if(data[2]!=undefined){
+            tmpQ = "INSERT INTO `tube3_dump`(value,utc) VALUES("+data[2]+","+nowdt+")";
+            Global.connection.query(tmpQ,function(err,data,row){
+                //console.log(data);
+                if(err){
+                    console.log(err);
+                    socketServ.sockets.emit("mysql_error",{});
+                }
+            });
+        }
+        if(data[3]!=undefined){
+            tmpQ = "INSERT INTO `tube4_dump`(value,utc) VALUES("+data[3]+","+nowdt+")";
+            Global.connection.query(tmpQ,function(err,data,row){
+                //console.log(data);
+                if(err){
+                    console.log(err);
+                    socketServ.sockets.emit("mysql_error",{});
+                }
+            });
+        }
+    }
+    FESender(data,nowdt);
+};
+function FESender(data,nowdt){
+    //nowdt = Number(nowdt);
+    socketServ.sockets.emit("all_ok",{
+        "tube1":[nowdt,Number(data[0])],
+        "tube2":[nowdt,Number(data[1])],
+        "tube3":[nowdt,Number(data[2])],
+        "tube4":[nowdt,Number(data[3])]
+    });
+};
 function WordToFloat( $Word1, $Word2 ) {
 		/* Conversion selon presentation Standard IEEE 754 
 		/    seeeeeeeemmmmmmmmmmmmmmmmmmmmmmm   
@@ -129,4 +202,4 @@ function WordToFloat( $Word1, $Word2 ) {
 		}
 
 	   return $value;
-	}
+	};

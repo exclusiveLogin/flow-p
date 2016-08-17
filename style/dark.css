@@ -1,0 +1,362 @@
+.headerdark{
+    background-color: #313131;
+    background-image: url("bg.jpg");
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    color: #E0E0E0;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    //border-bottom: 2px solid #10FF00;
+    box-shadow: 0 0 10px 0px rgba(0,0,0,0.7);
+    z-index: 100;
+    position: relative;
+}
+.danger_field{
+    width: 100%;
+    height: 10px;
+    background-color:#FFD100;
+    box-shadow: 0 0 10px 0px rgba(0,0,0,0.7);
+    z-index: 150;
+    position: relative;
+}
+.myhide{
+    /*transform: translate(0,-100px);*/
+    margin-top: -100px;
+}
+body{
+    margin: 0;
+    background-color: #919191;
+    margin-bottom: 30px;
+}
+#container{
+    padding-top: 10px;
+}
+#menu{
+    margin-bottom: 10px;
+}
+small{
+    font-size: 50%;
+}
+.logo{
+    margin-top: 15px;
+    text-align: left;
+    padding-left: 70px;
+    padding-top: 10px;
+    font-size: 125%;
+    text-transform: uppercase;
+    color: #FFD100;
+    text-shadow: 0 0 10px #FFD100;
+    background-image: url("../images/rn_logo.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    line-height: 20px;
+    background-size: 70px;
+    height: 64px;
+}
+#loginform{
+    padding: 10px;
+    border-top: 1px solid red;
+    display: none;
+}
+#fancytemp{
+    display: none;
+}
+
+h2.card_title{
+    font-size: 26px;
+    margin-top: 8px;
+    line-height: 20px;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+}
+h3.card_status{
+    font-size: 10px;
+    line-height: 0px;
+    margin: 0px;
+    color: grey;
+    font-family: 'GardensC';
+    text-transform: uppercase;
+    font-weight: bold;
+}
+h3.card_status_on{
+    color: greenyellow;
+    text-shadow: 0 0 5px rgba(50,255,50,0.5);
+}
+h3.card_status_off{
+    color: red;
+    text-shadow: 0 0 5px rgba(255,50,50,0.5);
+}
+#free_cont{
+    margin-top: 15px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 5px;
+    border-top: black solid 2px;
+    font-family: 'Quicksand', sans-serif;
+    display: none;
+
+}
+
+.uc_col{
+    height: 100%;
+    color: whitesmoke;
+    line-height: 20px;
+    padding: 0px;
+    padding-bottom: 15px;
+}
+.uc_wrapper{
+    height: 100%;
+    padding: 0;
+}
+.uc_col_left{
+    padding-left: 0;
+    padding-right: 0;
+    height: 100%;
+    padding-top: 15px;
+}
+.uc_photo{
+    height: 150px;
+    width: 100%;
+    border: 2px solid white;
+    border-radius: 5px;
+    max-width: 150px;
+    margin: 0px auto;
+    margin-bottom: 10px;
+    background-size: cover;
+    box-shadow: 0 0 10px 5px rgba(255,255,255,0.7);
+
+}
+.btn{
+    margin-top: 5px;
+}
+.test{
+    border:1px solid red;
+}
+.uc_emo_slider{
+    margin: 15px auto;
+    height: 170px !important;
+}
+.uc_emocontrol{
+    padding: 0px;
+}
+.uc_card{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#701717+0,aa2525+48,5b0404+76,930101+100 */
+    background: #701717; /* Old browsers */
+    background: -moz-linear-gradient(top,  #701717 0%, #aa2525 48%, #5b0404 76%, #930101 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #701717 0%,#aa2525 48%,#5b0404 76%,#930101 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #701717 0%,#aa2525 48%,#5b0404 76%,#930101 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#701717', endColorstr='#930101',GradientType=0 ); /* IE6-9 */
+
+}
+.uc_emo{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#959595+0,0d0d0d+46,010101+50,0a0a0a+53,4e4e4e+76,383838+87,1b1b1b+100;Black+Gloss+Pipe */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bfd255+0,8eb92a+50,72aa00+51,9ecb2d+100;Green+Gloss */
+    background: #bfd255; /* Old browsers */
+    background: -moz-linear-gradient(top,  #bfd255 0%, #8eb92a 50%, #72aa00 51%, #9ecb2d 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #bfd255 0%,#8eb92a 50%,#72aa00 51%,#9ecb2d 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #bfd255 0%,#8eb92a 50%,#72aa00 51%,#9ecb2d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 ); /* IE6-9 */
+    margin-bottom: 15px;
+}
+.uc_emo_val{
+    text-align: center;
+}
+.uc_weather{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+50,207cca+51,7db9e8+100;Blue+Gloss+Default */
+    background: #1e5799; /* Old browsers */
+    background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+    margin-bottom: 15px;
+}
+.uc_title{
+    margin-bottom: 15px;
+}
+.uc_col_weather{
+
+}
+.uc_login, .uc_name, .uc_title{
+    text-transform: uppercase;
+}
+#sysmsg, #emer_code{
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    font-family: Arial;
+    margin-bottom: 15px;
+    transition: all 1s ease;
+}
+.sys_err{
+    background: #91151b;
+}
+.sys_ok{
+    background: #1e9126;
+}
+#tooltip {
+    z-index: 10000;
+    position: absolute;
+    display: none;
+    top:0px;
+    left:0px;
+    background-color: #fff;
+    padding: 5px 10px 5px 10px;
+    color: grey;
+    opacity: 0.8;
+}
+.label-disabled{
+    opacity: 0.3;
+}
+.btn_clsuc{
+    margin-bottom: 15px;
+}
+#trend {	
+    display: none;
+    transition:opacity 0.5s ease;
+}
+.transparent{
+    opacity:0;
+    transform: translateX(-100%);
+}
+.code_msg{
+    text-align: center;
+    font-size: 80%;
+    color: white;
+}
+.mydevider{
+    margin: 5px 0;
+    border-bottom: 1px grey solid;
+}
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+    background: #333;
+}
+::-webkit-scrollbar-thumb {
+    background: #111;
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+::-webkit-scrollbar-corner {
+    background: #000;
+}
+a{
+    font-weight: bold;
+    color: #FFD100;
+}
+a:hover{
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #bfd255;
+}
+#usermap {
+    height: 300px;
+    width: 100%;
+    border-radius:10px;
+    border: 3px grey outset;
+}
+#footer{
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    color: #FFD100;
+    background-color: #333;
+    font-size: 80%;
+    width: 100%;
+    line-height: 15px;
+    border-top:3px solid #FFD100;
+}
+
+/*-------------------------------trends---------------------------*/
+.rt-trend{
+    background-color: #4c4c4c;
+    border: 2px dotted red;
+    color: white;
+    font-size: 200%;
+    font-family: "Arial Black";
+    text-align: center;
+}
+.cont_panel{
+    padding: 5px;
+    background-color: #313131;
+    background-image: url("bg.jpg");
+    border-top:3px solid #FFD100;
+    border-bottom:3px solid #FFD100;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow: auto;
+    transition: all 1s ease;
+    text-align: center;
+    font-size: 150% !important;
+}
+.btncont{
+    text-align: center;
+    height: 50px;
+}
+#wrapper{
+    z-index: 0;
+    position: relative;
+    transition: all 0.5s ease;
+}
+#tubecard{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top:3px solid #FFD100;
+    border-bottom:3px solid #FFD100;
+    background-color: #313131;
+    background-image: url("bg.jpg");
+    transition: all 0.5s ease;
+}
+#arj_trend{
+    height: 496px;
+}
+#map{
+    height: 300px;
+    background-color: #4c4c4c;
+}
+#info{
+    text-align: center;
+    font-size: 110%;
+    color: white;
+}
+.tubetitle{
+    font-size: 150%;
+    text-align: center;
+    color: white;
+    margin-top: -5px;
+    margin-bottom: 5px;
+}
+.btn_close{
+    top: -10px;
+    right: 5px;
+    display: block;
+    /* float: right; */
+    /* position: absolute; */
+    margin-bottom: -30px;
+}
+#result{
+    color: white;
+    font-size: 110%;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top:3px solid #FFD100;
+    border-bottom:3px solid #FFD100;
+    background-color: #313131;
+    background-image: url("bg.jpg");
+    transition: all 0.5s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.res_val{
+    font-size: 200%;
+}
+.res_title{
+    font-size: 90%;
+}
