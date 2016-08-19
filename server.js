@@ -3,24 +3,84 @@ Global.conSockets = [];
 var modbus = require("jsmodbus");
 var mysql = require("mysql");
 var socketServ = require('socket.io').listen(3000);
-var socketCl = require('socket.io-client')('http://10.210.30.148:8000');
+var socketCl = require('socket.io-client')('http://10.210.30.148:3001');
+
+//***********************CLIENT*************************
+
 socketCl.on('connect', function(){
     console.log("client connected to server");
+    setTimeout(replicator,5000);
+    socketCl.emit("id",{"name":"OPC_Prichal"});
 });
 socketCl.on('connect_error', function(){
-    console.log("client error");
+    console.log("connect to server error");
+    
 });
 socketCl.on('connect_timeout', function(){
-    console.log("client timeout");
+    console.log("connect to server error by timeout");
 });
 socketCl.on('msg', function(data){
     console.log("data:"+data.data);
 });
-
-socketServ.on("connection",function(socket){
-    console.log("client FE connected");
+socketCl.on('replicateQ', function(){
+    console.log("repl query");
+    replicator();
+});
+socketCl.on('free', function(data){
+    console.log("free from 0 to "+data.lid+" ID on tube:"+data.tube);
 });
 
+
+
+
+function replicator(){
+    var cont = {
+        tube1:undefined,
+        tube2:undefined,
+        tube3:undefined,
+        tube4:undefined,
+    };
+    pool.getConnection(function(err, connection) {
+        if(!err){
+            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube1_dump` ORDER BY `id` ASC LIMIT 50'; 
+            connection.query(tmpReplQuery,function(err,data,row){
+                cont.tube1 = data;
+                socketCl.emit("replica",cont);       
+                cont.tube1 = undefined;
+            });
+            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube2_dump` ORDER BY `id` ASC LIMIT 50'; 
+            connection.query(tmpReplQuery,function(err,data,row){
+                cont.tube2 = data;
+                socketCl.emit("replica",cont);       
+                cont.tube2 = undefined;
+            });
+            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube3_dump` ORDER BY `id` ASC LIMIT 50'; 
+            connection.query(tmpReplQuery,function(err,data,row){
+                cont.tube3 = data;
+                socketCl.emit("replica",cont);       
+                cont.tube3 = undefined;
+            });
+            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube4_dump` ORDER BY `id` ASC LIMIT 50'; 
+            connection.query(tmpReplQuery,function(err,data,row){
+                cont.tube4 = data;
+                socketCl.emit("replica",cont);       
+                cont.tube4 = undefined;
+            });
+        }else{
+            socketServ.sockets.emit("mysql_error",{});
+        }
+        connection.release();
+    });
+}
+
+//***********************SERVER*************************
+
+socketServ.on("connection",function(socket){
+    console.log("client Front End connected");
+});
+
+
+//***********************OPC****************************
 
 var client = modbus.client.tcp.complete({ 
         'host'              : "10.210.30.116", 
@@ -38,7 +98,7 @@ var pool  = mysql.createPool({
     database : 'flow_p'
 });
 
-client.connect();
+//client.connect();
 
 
 pool.on("connection", function(connection){
@@ -152,6 +212,8 @@ function FESender(data,nowdt){
         "tube4":[nowdt,Number(data[3])]
     });
 };
+
+
 function WordToFloat( $Word1, $Word2 ) {
 		/* Conversion selon presentation Standard IEEE 754 
 		/    seeeeeeeemmmmmmmmmmmmmmmmmmmmmmm   
