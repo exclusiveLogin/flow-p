@@ -1,5 +1,8 @@
 var Global = {};
+Global.serverCon = false;
 Global.conSockets = [];
+Global.checkDBTimer = false;
+Global.sendLock = false;
 var modbus = require("jsmodbus");
 var mysql = require("mysql");
 var socketServ = require('socket.io').listen(3000);
@@ -9,30 +12,129 @@ var socketCl = require('socket.io-client')('http://10.210.30.148:3001');
 
 socketCl.on('connect', function(){
     console.log("client connected to server");
-    setTimeout(replicator,5000);
+    setTimeout(checkDB,5000);
     socketCl.emit("id",{"name":"OPC_Prichal"});
+    Global.serverCon = true;
 });
 socketCl.on('connect_error', function(){
     console.log("connect to server error");
-    
+    Global.serverCon = false;
 });
 socketCl.on('connect_timeout', function(){
     console.log("connect to server error by timeout");
+    Global.serverCon = false;
 });
 socketCl.on('msg', function(data){
     console.log("data:"+data.data);
 });
 socketCl.on('replicateQ', function(){
     console.log("repl query");
-    replicator();
+    checkDB();
 });
 socketCl.on('free', function(data){
     console.log("free from 0 to "+data.lid+" ID on tube:"+data.tube);
+    Global.freeLock = true;
+    freenerDB(data.lid, data.tube);
+});
+socketCl.on('send_free', function(data){
+    console.log("you may send stack");
+    Global.freeLock = false;
 });
 
 
+function checksheduler(){
+    if(Global.checkDBTimer){
+        
+    }else{
+        Global.checkDBTimer = true;
+        setTimeout(checkDB,10000);
+    }
+};
 
-
+function checkDB(){
+    var states = {
+        tube1:false,
+        tube2:false,
+        tube3:false,
+        tube4:false
+    };
+    var needSend = false;
+    
+    if(Global.serverCon){
+        pool.getConnection(function(err, connection) {
+            if(!err){
+                var tmpReplQuery = "";
+                tmpReplQuery = "SELECT * FROM `tube1_dump`";
+                connection.query(tmpReplQuery,function(err,data,row){
+                    if(data.length){
+                        console.log("DB not empty rows on tube 1:"+data.length);
+                        needSend = true;
+                    }else{
+                        console.log("DB empty tube 1");
+                    }
+                    states.tube1 = true;
+                    checkIT();
+                });
+                tmpReplQuery = "SELECT * FROM `tube2_dump`";
+                connection.query(tmpReplQuery,function(err,data,row){
+                    if(data.length){
+                        console.log("DB not empty rows on tube 2:"+data.length);
+                        needSend = true;
+                    }else{
+                        console.log("DB empty tube 2");
+                    }
+                    states.tube2 = true;
+                    checkIT();
+                });
+                tmpReplQuery = "SELECT * FROM `tube3_dump`";
+                connection.query(tmpReplQuery,function(err,data,row){
+                    if(data.length){
+                        console.log("DB not empty rows on tube 3:"+data.length);
+                        needSend = true;
+                    }else{
+                        console.log("DB empty tube 3");
+                    }
+                    states.tube3 = true;
+                    checkIT();
+                });
+                tmpReplQuery = "SELECT * FROM `tube4_dump`";
+                connection.query(tmpReplQuery,function(err,data,row){
+                    if(data.length){
+                        console.log("DB not empty rows on tube 4:"+data.length);
+                        needSend = true;
+                    }else{
+                        console.log("DB empty tube 4");
+                    }
+                    states.tube4 = true;
+                    checkIT();
+                });
+            }
+            else{
+                socketServ.sockets.emit("mysql_error",{});
+            }
+            connection.release();
+        });
+        function checkIT(){
+            if(states.tube1 && states.tube2 && states.tube3 && states.tube4 && needSend){ //если где то не пусто запускаем репликатор
+                replicator();
+                console.log("data need send");
+            }
+            if(states.tube1 && states.tube2 && states.tube3 && states.tube4 && !needSend){ //если нет данных но стек закончен сбрасываем флаги
+                Global.checkDBTimer = false;
+                checksheduler();
+                console.log("data NOT need send");
+            }
+            if(states.tube1 && states.tube2 && states.tube3 && states.tube4){ //если нет данных но стек закончен сбрасываем флаги
+                states.tube1 = false;
+                states.tube2 = false;
+                states.tube3 = false;
+                states.tube4 = false;
+                console.log("reset flags");
+            }
+            
+        };
+    }
+};
 function replicator(){
     var cont = {
         tube1:undefined,
@@ -42,36 +144,78 @@ function replicator(){
     };
     pool.getConnection(function(err, connection) {
         if(!err){
+            var tmpReplQuery = "";
             tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube1_dump` ORDER BY `id` ASC LIMIT 50'; 
             connection.query(tmpReplQuery,function(err,data,row){
-                cont.tube1 = data;
-                socketCl.emit("replica",cont);       
-                cont.tube1 = undefined;
+                if(data.length>0){
+                    cont.tube1 = data;
+                    if(!Global.sendLock){
+                        socketCl.emit("replica",cont); 
+                        Global.sendLock = true;
+                    }      
+                    cont.tube1 = undefined;
+                }                
             });
             tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube2_dump` ORDER BY `id` ASC LIMIT 50'; 
             connection.query(tmpReplQuery,function(err,data,row){
-                cont.tube2 = data;
-                socketCl.emit("replica",cont);       
-                cont.tube2 = undefined;
+                if(data.length>0){
+                    cont.tube2 = data;
+                    if(!Global.sendLock){
+                        socketCl.emit("replica",cont); 
+                        Global.sendLock = true;
+                    }      
+                    cont.tube2 = undefined;
+                }                
             });
             tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube3_dump` ORDER BY `id` ASC LIMIT 50'; 
             connection.query(tmpReplQuery,function(err,data,row){
-                cont.tube3 = data;
-                socketCl.emit("replica",cont);       
-                cont.tube3 = undefined;
+                if(data.length){
+                    cont.tube3 = data;
+                    if(!Global.sendLock){
+                        socketCl.emit("replica",cont);  
+                        Global.sendLock = true;
+                    }     
+                    cont.tube3 = undefined;
+                }
             });
             tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube4_dump` ORDER BY `id` ASC LIMIT 50'; 
             connection.query(tmpReplQuery,function(err,data,row){
-                cont.tube4 = data;
-                socketCl.emit("replica",cont);       
-                cont.tube4 = undefined;
+                if(data.length){
+                    cont.tube4 = data;
+                    if(!Global.sendLock){
+                        socketCl.emit("replica",cont); 
+                        Global.sendLock = true;
+                    }      
+                    cont.tube4 = undefined;
+                }
             });
         }else{
             socketServ.sockets.emit("mysql_error",{});
         }
         connection.release();
     });
-}
+};
+function freenerDB(lid,tube){
+    pool.getConnection(function(err, connection) {
+        if(!err){
+            var tmpReplQuery = "";
+            tmpReplQuery = 'DELETE FROM `tube'+tube+'_dump` WHERE id<='+lid; 
+            //console.log(tmpReplQuery);
+            connection.query(tmpReplQuery,function(err,data,row){
+                if(err){
+                    socketServ.sockets.emit("mysql_error",{});
+                }else{
+                    console.log("data free where id < "+lid+"  on tube:"+tube);
+                    //replica may be
+                    socketCl.emit("free_free",{});
+                }
+            });
+        }else{
+            socketServ.sockets.emit("mysql_error",{});
+        }
+        connection.release();
+    });
+};
 
 //***********************SERVER*************************
 
@@ -98,7 +242,7 @@ var pool  = mysql.createPool({
     database : 'flow_p'
 });
 
-//client.connect();
+client.connect();
 
 
 pool.on("connection", function(connection){
@@ -159,48 +303,58 @@ function rcvTubes(){
 //----------------------------------
 function DBWriter(data,nowdt){
     var tmpQ = "";
-    if(data!=undefined){
-        if(data[0]!=undefined){
-            tmpQ = "INSERT INTO `tube1_dump`(value,utc) VALUES("+data[0]+","+nowdt+")";
-            Global.connection.query(tmpQ,function(err,data,row){
-                //console.log(data);
-                if(err){
-                    console.log(err);
-                    socketServ.sockets.emit("mysql_error",{});
-                }
-            });
-        }
-        if(data[1]!=undefined){
-            tmpQ = "INSERT INTO `tube2_dump`(value,utc) VALUES("+data[1]+","+nowdt+")";
-            Global.connection.query(tmpQ,function(err,data,row){
-                //console.log(data);
-                if(err){
-                    console.log(err);
-                    socketServ.sockets.emit("mysql_error",{});
-                }
-            });
-        }
-        if(data[2]!=undefined){
-            tmpQ = "INSERT INTO `tube3_dump`(value,utc) VALUES("+data[2]+","+nowdt+")";
-            Global.connection.query(tmpQ,function(err,data,row){
-                //console.log(data);
-                if(err){
-                    console.log(err);
-                    socketServ.sockets.emit("mysql_error",{});
-                }
-            });
-        }
-        if(data[3]!=undefined){
-            tmpQ = "INSERT INTO `tube4_dump`(value,utc) VALUES("+data[3]+","+nowdt+")";
-            Global.connection.query(tmpQ,function(err,data,row){
-                //console.log(data);
-                if(err){
-                    console.log(err);
-                    socketServ.sockets.emit("mysql_error",{});
-                }
-            });
-        }
+    if(Global.serverCon){
+        //ServerSender(data,nowdt);
+        console.log("Отправка данных Серверу WS");
+        console.log(data);
     }
+    else{
+        //***********
+        if(data!=undefined){
+            if(data[0]!=undefined){
+                tmpQ = "INSERT INTO `tube1_dump`(value,utc) VALUES("+data[0]+","+nowdt+")";
+                Global.connection.query(tmpQ,function(err,data,row){
+                    //console.log(data);
+                    if(err){
+                        console.log(err);
+                        socketServ.sockets.emit("mysql_error",{});
+                    }
+                });
+            }
+            if(data[1]!=undefined){
+                tmpQ = "INSERT INTO `tube2_dump`(value,utc) VALUES("+data[1]+","+nowdt+")";
+                Global.connection.query(tmpQ,function(err,data,row){
+                    //console.log(data);
+                    if(err){
+                        console.log(err);
+                        socketServ.sockets.emit("mysql_error",{});
+                    }
+                });
+            }
+            if(data[2]!=undefined){
+                tmpQ = "INSERT INTO `tube3_dump`(value,utc) VALUES("+data[2]+","+nowdt+")";
+                Global.connection.query(tmpQ,function(err,data,row){
+                    //console.log(data);
+                    if(err){
+                        console.log(err);
+                        socketServ.sockets.emit("mysql_error",{});
+                    }
+                });
+            }
+            if(data[3]!=undefined){
+                tmpQ = "INSERT INTO `tube4_dump`(value,utc) VALUES("+data[3]+","+nowdt+")";
+                Global.connection.query(tmpQ,function(err,data,row){
+                    //console.log(data);
+                    if(err){
+                        console.log(err);
+                        socketServ.sockets.emit("mysql_error",{});
+                    }
+                });
+            }
+        }   
+        //************
+    }
+    
     FESender(data,nowdt);
 };
 function FESender(data,nowdt){
@@ -212,6 +366,15 @@ function FESender(data,nowdt){
         "tube4":[nowdt,Number(data[3])]
     });
 };
+
+function ServerSender(data,nowdt){
+    socketCl.emit("all_ok",{
+        "tube1":[nowdt,Number(data[0])],
+        "tube2":[nowdt,Number(data[1])],
+        "tube3":[nowdt,Number(data[2])],
+        "tube4":[nowdt,Number(data[3])]
+    });
+}
 
 
 function WordToFloat( $Word1, $Word2 ) {
