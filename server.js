@@ -3,10 +3,27 @@ Global.serverCon = false;
 Global.conSockets = [];
 Global.checkDBTimer = false;
 Global.sendLock = false;
+Global.SendQuery = false;
 var modbus = require("jsmodbus");
 var mysql = require("mysql");
 var socketServ = require('socket.io').listen(3000);
 var socketCl = require('socket.io-client')('http://10.210.30.148:3001');
+
+//***********************WTD****************************
+WatchDog();
+
+function WatchDog(){
+    if(Global.serverCon){
+        if(Global.SendQuery){
+            Global.SendQuery = false;
+            console.log("WTD ping");        
+            checkDB();
+        }
+    }else{
+        console.log("WTD: server not connected");
+    }
+    setTimeout(WatchDog, 30000);
+};
 
 //***********************CLIENT*************************
 
@@ -38,20 +55,13 @@ socketCl.on('free', function(data){
 });
 socketCl.on('send_free', function(data){
     console.log("you may send stack");
-    Global.freeLock = false;
+    Global.sendLock = false;
+    checkDB();
+    //Global.freeLock = false;
 });
 
-
-function checksheduler(){
-    if(Global.checkDBTimer){
-        
-    }else{
-        Global.checkDBTimer = true;
-        setTimeout(checkDB,10000);
-    }
-};
-
 function checkDB(){
+    console.log("check DB");
     var states = {
         tube1:false,
         tube2:false,
@@ -116,12 +126,10 @@ function checkDB(){
         });
         function checkIT(){
             if(states.tube1 && states.tube2 && states.tube3 && states.tube4 && needSend){ //если где то не пусто запускаем репликатор
-                replicator();
                 console.log("data need send");
+                replicator();
             }
             if(states.tube1 && states.tube2 && states.tube3 && states.tube4 && !needSend){ //если нет данных но стек закончен сбрасываем флаги
-                Global.checkDBTimer = false;
-                checksheduler();
                 console.log("data NOT need send");
             }
             if(states.tube1 && states.tube2 && states.tube3 && states.tube4){ //если нет данных но стек закончен сбрасываем флаги
@@ -149,9 +157,12 @@ function replicator(){
             connection.query(tmpReplQuery,function(err,data,row){
                 if(data.length>0){
                     cont.tube1 = data;
-                    if(!Global.sendLock){
-                        socketCl.emit("replica",cont); 
+                    if(!Global.sendLock && !Global.freeLock){
                         Global.sendLock = true;
+                        socketCl.emit("replica",cont);
+                    }else{
+                        console.log("SEND LOCK tube 1");
+                        Global.SendQuery = true;
                     }      
                     cont.tube1 = undefined;
                 }                
@@ -160,10 +171,13 @@ function replicator(){
             connection.query(tmpReplQuery,function(err,data,row){
                 if(data.length>0){
                     cont.tube2 = data;
-                    if(!Global.sendLock){
-                        socketCl.emit("replica",cont); 
+                    if(!Global.sendLock && !Global.freeLock){
                         Global.sendLock = true;
-                    }      
+                        socketCl.emit("replica",cont); 
+                    }else{
+                        console.log("SEND LOCK tube 2");
+                        Global.SendQuery = true;
+                    }        
                     cont.tube2 = undefined;
                 }                
             });
@@ -171,10 +185,13 @@ function replicator(){
             connection.query(tmpReplQuery,function(err,data,row){
                 if(data.length){
                     cont.tube3 = data;
-                    if(!Global.sendLock){
-                        socketCl.emit("replica",cont);  
+                    if(!Global.sendLock && !Global.freeLock){
                         Global.sendLock = true;
-                    }     
+                        socketCl.emit("replica",cont);  
+                    }else{
+                        console.log("SEND LOCK tube 3");
+                        Global.SendQuery = true;
+                    }         
                     cont.tube3 = undefined;
                 }
             });
@@ -182,10 +199,13 @@ function replicator(){
             connection.query(tmpReplQuery,function(err,data,row){
                 if(data.length){
                     cont.tube4 = data;
-                    if(!Global.sendLock){
-                        socketCl.emit("replica",cont); 
+                    if(!Global.sendLock && !Global.freeLock){
                         Global.sendLock = true;
-                    }      
+                        socketCl.emit("replica",cont); 
+                    }else{
+                        console.log("SEND LOCK tube 4");
+                        Global.SendQuery = true;
+                    }          
                     cont.tube4 = undefined;
                 }
             });
@@ -208,10 +228,14 @@ function freenerDB(lid,tube){
                     console.log("data free where id < "+lid+"  on tube:"+tube);
                     //replica may be
                     socketCl.emit("free_free",{});
+                    Global.freeLock = false;
                 }
             });
         }else{
+            console.log("freener ERROR");
             socketServ.sockets.emit("mysql_error",{});
+            socketCl.emit("free_free",{});
+            Global.freeLock = false;
         }
         connection.release();
     });
@@ -307,6 +331,7 @@ function DBWriter(data,nowdt){
         //ServerSender(data,nowdt);
         console.log("Отправка данных Серверу WS");
         console.log(data);
+        socketCl.emit("RTSend",{"tubes":data,"time":nowdt});
     }
     else{
         //***********
