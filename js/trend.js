@@ -258,6 +258,7 @@ $(document).ready(function(){
             title: {
                 text: 'Давление'
             },
+	minRange:3,
         },
         plotOptions: {
             series: {
@@ -300,6 +301,7 @@ $(document).ready(function(){
             title: {
                 text: 'Давление'
             },
+	minRange:3,
         },
         plotOptions: {
             series: {
@@ -342,6 +344,7 @@ $(document).ready(function(){
             title: {
                 text: 'Давление'
             },
+	minRange:3,
         },
         plotOptions: {
             series: {
