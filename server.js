@@ -5,6 +5,7 @@ Global.checkDBTimer = false;
 Global.sendLock = false;
 Global.SendQuery = false;
 var modbus = require("jsmodbus");
+var util = require("util");
 var mysql = require("mysql");
 var socketServ = require('socket.io').listen(3000);
 var socketCl = require('socket.io-client')('http://10.210.30.148:3001');
@@ -277,16 +278,27 @@ pool.on("connection", function(connection){
 
 client.on('connect', function () {
     console.log("PLC connected");
+    //----------
+    if(Global.schedullerTube){
+            clearInterval(Global.schedullerTube);
+            console.log("interval clear first reset");
+        }
+    if(Global.connection){
+        Global.connection.release();
+        Global.connection = null;
+    }
     pool.getConnection(function(err, connection) {
         if(err){
             socketServ.sockets.emit("mysql_error",{});
+            console.log("pool error");
         }else{
             socketServ.sockets.emit("all_ok",{});
+             console.log("No error SQL {LOCAL} all ok");
             Global.connection = connection;
             Global.schedullerTube = setInterval(function(){
-                rcvTubes();  
+                rcvTubes();
                 //console.log(process.memoryUsage().heapUsed);
-            },1000);
+            },500);
         }    
     });
 });
@@ -314,10 +326,17 @@ function rcvTubes(){
         res[3] = WordToFloat(resp.register[7],resp.register[6]).toFixed(2);
         console.log("1:"+res[0]+" 2:"+res[1]+" 3:"+res[2]+" 4:"+res[3]+" heap = "+process.memoryUsage().heapUsed);
         var nowdt = Date.now();
-        DBWriter(res,nowdt);
+        FESender(res,nowdt);
+        if(Global.serverCon){
+            ServerSender(res,nowdt);
+        }else{
+            //DBWriter(res,nowdt);
+        }
     }).fail(function(e){
+        console.log(e);
         if(Global.schedullerTube){
             clearInterval(Global.schedullerTube);
+            console.log("interval clear RCV TUBES");
         }
         socketServ.sockets.emit("mb_error",{});
     });
@@ -328,13 +347,11 @@ function rcvTubes(){
 function DBWriter(data,nowdt){
     var tmpQ = "";
     if(Global.serverCon){
-        //ServerSender(data,nowdt);
         console.log("Отправка данных Серверу WS");
         console.log(data);
         socketCl.emit("RTSend",{"tubes":data,"time":nowdt});
     }
     else{
-        //***********
         if(data!=undefined){
             if(data[0]!=undefined){
                 tmpQ = "INSERT INTO `tube1_dump`(value,utc) VALUES("+data[0]+","+nowdt+")";
@@ -377,10 +394,7 @@ function DBWriter(data,nowdt){
                 });
             }
         }   
-        //************
     }
-    
-    FESender(data,nowdt);
 };
 function FESender(data,nowdt){
     //nowdt = Number(nowdt);
@@ -391,17 +405,14 @@ function FESender(data,nowdt){
         "tube4":[nowdt,Number(data[3])]
     });
 };
-
 function ServerSender(data,nowdt){
-    socketCl.emit("all_ok",{
-        "tube1":[nowdt,Number(data[0])],
-        "tube2":[nowdt,Number(data[1])],
-        "tube3":[nowdt,Number(data[2])],
-        "tube4":[nowdt,Number(data[3])]
-    });
-}
+    console.log("Отправка данных Серверу WS");
+    console.log(util.inspect(data,{colors:true}));
+    socketCl.emit("RTSend",{"tubes":data,"time":nowdt});
+};
 
 
+//--------------------------SUPPORT FUNC-------------------------
 function WordToFloat( $Word1, $Word2 ) {
 		/* Conversion selon presentation Standard IEEE 754 
 		/    seeeeeeeemmmmmmmmmmmmmmmmmmmmmmm   

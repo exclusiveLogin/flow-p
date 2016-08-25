@@ -38,7 +38,7 @@ $(document).ready(function(){
                 $('#tube1_val').text(data.tube1[1]);
                 $('#tube1_pr_val').css("width",press2perc(data.tube1[1])+"%");
                 
-                if(Global.Trend1.series[0].xData.length<30){
+                if(Global.Trend1.series[0].xData.length<300){
                     Global.Trend1.series[0].addPoint(data.tube1,true,false,false);
                 }else{
                     Global.Trend1.series[0].addPoint(data.tube1,true,true,false);
@@ -49,7 +49,7 @@ $(document).ready(function(){
                 $('#tube2_val').text(data.tube2[1]);
                 $('#tube2_pr_val').css("width",press2perc(data.tube2[1])+"%");
                 
-                if(Global.Trend2.series[0].xData.length<30){
+                if(Global.Trend2.series[0].xData.length<300){
                     Global.Trend2.series[0].addPoint(data.tube2,true,false,false);
                 }else{
                     Global.Trend2.series[0].addPoint(data.tube2,true,true,false);
@@ -60,7 +60,7 @@ $(document).ready(function(){
                 $('#tube3_val').text(data.tube3[1]);
                 $('#tube3_pr_val').css("width",press2perc(data.tube3[1])+"%");
                 
-                if(Global.Trend3.series[0].xData.length<30){
+                if(Global.Trend3.series[0].xData.length<300){
                     Global.Trend3.series[0].addPoint(data.tube3,true,false,false);
                 }else{
                     Global.Trend3.series[0].addPoint(data.tube3,true,true,false);
@@ -71,7 +71,7 @@ $(document).ready(function(){
                 $('#tube4_val').text(data.tube4[1]);
                 $('#tube4_pr_val').css("width",press2perc(data.tube4[1])+"%");
                 
-                if(Global.Trend4.series[0].xData.length<30){
+                if(Global.Trend4.series[0].xData.length<300){
                     Global.Trend4.series[0].addPoint(data.tube4,true,false,false);
                 }else{
                     Global.Trend4.series[0].addPoint(data.tube4,true,true,false);
@@ -96,6 +96,6 @@ function press2perc(val){
     var max = 16.0;
     var desc = max/100;
     var cur = val/desc;
-    console.log(cur);
+    //console.log(cur);
     return cur;
 }
