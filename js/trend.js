@@ -212,7 +212,7 @@ $(document).ready(function(){
         yAxis: {
             //min:0,
             //max:16,
-            //minRange:3,
+            minRange:1,
             title: {
                 text: 'Давление'
             },
@@ -258,7 +258,7 @@ $(document).ready(function(){
             title: {
                 text: 'Давление'
             },
-	//minRange:3,
+	       minRange:1,
         },
         plotOptions: {
             series: {
@@ -301,7 +301,7 @@ $(document).ready(function(){
             title: {
                 text: 'Давление'
             },
-	//minRange:3,
+	       minRange:1,
         },
         plotOptions: {
             series: {
@@ -344,7 +344,7 @@ $(document).ready(function(){
             title: {
                 text: 'Давление'
             },
-	//minRange:3,
+	       minRange:1,
         },
         plotOptions: {
             series: {
