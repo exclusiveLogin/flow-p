@@ -23,7 +23,11 @@ function WatchDog(){
     }else{
         console.log("WTD: server not connected");
     }
-    setTimeout(WatchDog, 30000);
+    if(Global.SendQuery){
+        setTimeout(WatchDog, 1000);
+    }else{
+        setTimeout(WatchDog, 5000);
+    }
 };
 
 //***********************CLIENT*************************
