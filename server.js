@@ -298,7 +298,7 @@ client.on('connect', function () {
             Global.schedullerTube = setInterval(function(){
                 rcvTubes();
                 //console.log(process.memoryUsage().heapUsed);
-            },500);
+            },125);
         }    
     });
 });
@@ -330,7 +330,7 @@ function rcvTubes(){
         if(Global.serverCon){
             ServerSender(res,nowdt);
         }else{
-            //DBWriter(res,nowdt);
+            DBWriter(res,nowdt);
         }
     }).fail(function(e){
         console.log(e);
