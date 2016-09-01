@@ -11,7 +11,7 @@ var socketServ = require('socket.io').listen(3000);
 var socketCl = require('socket.io-client')('http://10.210.30.148:3001');
 
 //***********************WTD****************************
-WatchDog();
+//WatchDog();
 
 function WatchDog(){
     if(Global.serverCon){
@@ -23,11 +23,13 @@ function WatchDog(){
     }else{
         console.log("WTD: server not connected");
     }
-    if(Global.SendQuery){
+    /*if(Global.SendQuery){
+        console.log("SendQuery true");
         setTimeout(WatchDog, 1000);
     }else{
-        setTimeout(WatchDog, 5000);
-    }
+        setTimeout(WatchDog, 30000);
+    }*/
+    setTimeout(WatchDog, 30000);
 };
 
 //***********************CLIENT*************************
@@ -62,7 +64,6 @@ socketCl.on('send_free', function(data){
     console.log("you may send stack");
     Global.sendLock = false;
     checkDB();
-    //Global.freeLock = false;
 });
 
 function checkDB(){
@@ -169,7 +170,7 @@ function replicator(){
                         console.log("SEND LOCK tube 1");
                         Global.SendQuery = true;
                     }      
-                    cont.tube1 = undefined;
+                    cont.tube1 = null;
                 }                
             });
             tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube2_dump` ORDER BY `id` ASC LIMIT 50'; 
@@ -183,7 +184,7 @@ function replicator(){
                         console.log("SEND LOCK tube 2");
                         Global.SendQuery = true;
                     }        
-                    cont.tube2 = undefined;
+                    cont.tube2 = null;
                 }                
             });
             tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube3_dump` ORDER BY `id` ASC LIMIT 50'; 
@@ -197,7 +198,7 @@ function replicator(){
                         console.log("SEND LOCK tube 3");
                         Global.SendQuery = true;
                     }         
-                    cont.tube3 = undefined;
+                    cont.tube3 = null;
                 }
             });
             tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube4_dump` ORDER BY `id` ASC LIMIT 50'; 
@@ -211,7 +212,7 @@ function replicator(){
                         console.log("SEND LOCK tube 4");
                         Global.SendQuery = true;
                     }          
-                    cont.tube4 = undefined;
+                    cont.tube4 = null;
                 }
             });
         }else{
@@ -271,7 +272,7 @@ var pool  = mysql.createPool({
     database : 'flow_p'
 });
 
-//client.connect();
+client.connect();
 
 
 pool.on("connection", function(connection){
@@ -299,10 +300,7 @@ client.on('connect', function () {
             socketServ.sockets.emit("all_ok",{});
              console.log("No error SQL {LOCAL} all ok");
             Global.connection = connection;
-            Global.schedullerTube = setInterval(function(){
-                rcvTubes();
-                //console.log(process.memoryUsage().heapUsed);
-            },1000);
+            Global.schedullerTube = setInterval(rcvTubes,1000);
         }    
     });
 });
@@ -328,11 +326,12 @@ function rcvTubes(){
         res[1] = WordToFloat(resp.register[3],resp.register[2]).toFixed(2);
         res[2] = WordToFloat(resp.register[5],resp.register[4]).toFixed(2);
         res[3] = WordToFloat(resp.register[7],resp.register[6]).toFixed(2);
-        console.log("1:"+res[0]+" 2:"+res[1]+" 3:"+res[2]+" 4:"+res[3]+" heap = "+process.memoryUsage().heapUsed);
+        //console.log("1:"+res[0]+" 2:"+res[1]+" 3:"+res[2]+" 4:"+res[3]+" heap = "+process.memoryUsage().heapUsed);
+        socketServ.emit("heap",process.memoryUsage());
         var nowdt = Date.now();
         FESender(res,nowdt);
         if(Global.serverCon){
-            //ServerSender(res,nowdt);
+            ServerSender(res,nowdt);
         }else{
             DBWriter(res,nowdt);
         }
@@ -350,12 +349,12 @@ function rcvTubes(){
 //----------------------------------
 function DBWriter(data,nowdt){
     var tmpQ = "";
-    if(Global.serverCon){
+    /*if(Global.serverCon){
         console.log("Отправка данных Серверу WS");
         console.log(data);
         socketCl.emit("RTSend",{"tubes":data,"time":nowdt});
     }
-    else{
+    else{*/
         if(data!=undefined){
             if(data[0]!=undefined){
                 tmpQ = "INSERT INTO `tube1_dump`(value,utc) VALUES("+data[0]+","+nowdt+")";
@@ -363,7 +362,7 @@ function DBWriter(data,nowdt){
                     //console.log(data);
                     if(err){
                         console.log(err);
-                        socketServ.sockets.emit("mysql_error",{});
+                        socketServ.emit("mysql_error",{});
                     }
                 });
             }
@@ -373,7 +372,7 @@ function DBWriter(data,nowdt){
                     //console.log(data);
                     if(err){
                         console.log(err);
-                        socketServ.sockets.emit("mysql_error",{});
+                        socketServ.emit("mysql_error",{});
                     }
                 });
             }
@@ -383,7 +382,7 @@ function DBWriter(data,nowdt){
                     //console.log(data);
                     if(err){
                         console.log(err);
-                        socketServ.sockets.emit("mysql_error",{});
+                        socketServ.emit("mysql_error",{});
                     }
                 });
             }
@@ -393,15 +392,14 @@ function DBWriter(data,nowdt){
                     //console.log(data);
                     if(err){
                         console.log(err);
-                        socketServ.sockets.emit("mysql_error",{});
+                        socketServ.emit("mysql_error",{});
                     }
                 });
             }
         }   
-    }
-};
+    };
+
 function FESender(data,nowdt){
-    //nowdt = Number(nowdt);
     socketServ.sockets.emit("all_ok",{
         "tube1":[nowdt,Number(data[0])],
         "tube2":[nowdt,Number(data[1])],
@@ -411,7 +409,7 @@ function FESender(data,nowdt){
 };
 function ServerSender(data,nowdt){
     console.log("Отправка данных Серверу WS");
-    console.log(util.inspect(data,{colors:true}));
+    //console.log(util.inspect(data,{colors:true}));
     socketCl.emit("RTSend",{"tubes":data,"time":nowdt});
 };
 

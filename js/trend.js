@@ -192,6 +192,7 @@ $(document).ready(function(){
     Global.trend2Container = document.getElementById("trend_tube2");
     Global.trend3Container = document.getElementById("trend_tube3");
     Global.trend4Container = document.getElementById("trend_tube4");
+    Global.trendHeapContainer = document.getElementById("trend_heap");
     var Trend_rt_setting1 = {
         credits:{enabled:false},
         chart: {
@@ -367,9 +368,62 @@ $(document).ready(function(){
             color:"orange"
         }]
     };
+    var Trend_HeapSettings = {
+        credits:{enabled:false},
+        chart: {
+            height:250,
+            renderTo:Global.trendHeapContainer,            
+        },
+        title: {
+            text: 'График производительности'
+        },
+        legend: {
+            enabled: false
+        },
+        xAxis: {
+            //type: 'datetime',
+            //ordinal:false,
+        },
+        yAxis: {
+            title: {
+                text: 'Memory Used'
+            },
+        },
+        plotOptions: {
+            series: {
+                threshold:40
+            },
+            line:{
+                marker:{
+                    enabled:false
+                },
+            },
+        },
+        series:[{
+            type: 'line',
+            name: 'Heap Used',
+            //data:[0,3,4,3,12,15,2],
+            tooltip: {
+                valueDecimals: 0,
+                valueSuffix:' bytes'
+            },
+            color:"orange"
+        },
+               {
+            type: 'line',
+            name: 'Heap Total',
+            //data:[0,3,4,3,12,15,2],
+            tooltip: {
+                valueDecimals: 0,
+                valueSuffix:' bytes'
+            },
+            color:"red"
+        }]
+    };
     Global.Trend1 = new Highcharts.Chart(Trend_rt_setting1);
     Global.Trend2 = new Highcharts.Chart(Trend_rt_setting2);
     Global.Trend3 = new Highcharts.Chart(Trend_rt_setting3);
     Global.Trend4 = new Highcharts.Chart(Trend_rt_setting4);
-    console.log("test");
+    Global.TrendHeap = new Highcharts.Chart(Trend_HeapSettings);
+    //console.log("test");
 });

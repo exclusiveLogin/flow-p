@@ -31,6 +31,27 @@ $(document).ready(function(){
     Global.socketToLH.on("mb_ok", function(){
         $('#panel').html('<h2 class="label label-lg label-danger">Связь c PLC установлена</h2>');
     });
+    Global.socketToLH.on("heap", function(data){
+        if(data){
+            if(data.heapUsed){
+                $("#server_heap").text(data.heapUsed);
+                if(Global.TrendHeap.series[0].xData.length<300){
+                    Global.TrendHeap.series[0].addPoint(data.heapUsed,true,false,false);
+                }else{
+                    Global.TrendHeap.series[0].addPoint(data.heapUsed,true,true,false);
+                } 
+            }
+            if(data.heapTotal){
+                $("#server_heapT").text(data.heapTotal);
+                if(Global.TrendHeap.series[1].xData.length<300){
+                    Global.TrendHeap.series[1].addPoint(data.heapTotal,true,false,false);
+                }else{
+                    Global.TrendHeap.series[1].addPoint(data.heapTotal,true,true,false);
+                } 
+            }
+        }
+        
+    });
     Global.socketToLH.on("all_ok", function(data){
         $('#panel').html('<h2 class="label label-lg label-success">Система работает</h2>');
         if(data){           
