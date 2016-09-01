@@ -220,13 +220,13 @@ function freenerDB(lid,tube){
     pool.getConnection(function(err, connection) {
         if(!err){
             var tmpReplQuery = "";
-            tmpReplQuery = 'DELETE FROM `tube'+tube+'_dump` WHERE id<='+lid; 
+            tmpReplQuery = 'DELETE FROM `tube'+tube+'_dump` WHERE `utc`<='+lid; 
             //console.log(tmpReplQuery);
             connection.query(tmpReplQuery,function(err,data,row){
                 if(err){
                     socketServ.sockets.emit("mysql_error",{});
                 }else{
-                    console.log("data free where id < "+lid+"  on tube:"+tube);
+                    console.log("data free where utc < "+lid+"  on tube:"+tube);
                     //replica may be
                     socketCl.emit("free_free",{});
                     Global.freeLock = false;
@@ -267,7 +267,7 @@ var pool  = mysql.createPool({
     database : 'flow_p'
 });
 
-client.connect();
+//client.connect();
 
 
 pool.on("connection", function(connection){
@@ -298,7 +298,7 @@ client.on('connect', function () {
             Global.schedullerTube = setInterval(function(){
                 rcvTubes();
                 //console.log(process.memoryUsage().heapUsed);
-            },125);
+            },1000);
         }    
     });
 });
@@ -328,7 +328,7 @@ function rcvTubes(){
         var nowdt = Date.now();
         FESender(res,nowdt);
         if(Global.serverCon){
-            ServerSender(res,nowdt);
+            //ServerSender(res,nowdt);
         }else{
             DBWriter(res,nowdt);
         }
