@@ -49,6 +49,12 @@ $(document).ready(function(){
                     Global.TrendHeap.series[1].addPoint(data.heapTotal,true,true,false);
                 } 
             }
+            if(data.sqlfree){
+                $("#server_sqlfree").text(data.sqlfree);
+            }
+            if(data.sqlcon){
+                $("#server_sqlcon").text(data.sqlcon);
+            }
         }
         
     });

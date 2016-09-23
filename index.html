@@ -126,9 +126,17 @@
                 <div id="trend_tube4"></div> 
             </div>
             <div id="rt_trend_heap" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rt-trend">
-                <small>heapUsed: </small><span id="server_heap">0</span><small> bytes</small><br>
-                <small>heapTotal: </small><span id="server_heapT">0</span><small> bytes</small>
-                <div id="trend_heap"></div> 
+                <div class="row">
+                    <div class="col-md-6">
+                        <small>heapUsed: </small><span id="server_heap">0</span><small> bytes</small><br>
+                        <small>All SQL connections: </small><span id="server_sqlcon">0</span><small></small><br>
+                    </div>
+                    <div class="col-md-6">
+                        <small>heapTotal: </small><span id="server_heapT">0</span><small> bytes</small><br>
+                        <small>Free SQL connections: </small><span id="server_sqlfree">0</span><small></small>
+                    </div>
+                    <div class="col-md-12" id="trend_heap"></div> 
+                </div>
             </div>
         </div>
     </div>
