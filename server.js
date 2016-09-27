@@ -9,6 +9,9 @@ var util = require("util");
 var mysql = require("mysql");
 var socketServ = require('socket.io').listen(3000);
 var socketCl = false;
+
+Global.sqlResetQuery = false;
+
 function SocToNBRecon(){
     if(socketCl){
         console.log("SocketCL delete");
@@ -59,7 +62,7 @@ function SocToNBRecon(){
         });
     }
 }
-SocToNBRecon();
+SocToNBRecon();//первичная инициация socket to NB
 
 //***********************WTD****************************
 //WatchDog();
@@ -286,18 +289,40 @@ var client = modbus.client.tcp.complete({
         'unitId'            : 0
     });
 //-------------------------POOL--------------------------
-var pool  = mysql.createPool({
-    connectionLimit : 5,
-    host     : 'localhost',
-    user     : 'root',
-    password : '123',
-    database : 'flow_p'
-});
+var pool;
+function crPool(){
+    pool  = mysql.createPool({
+        connectionLimit : 5,
+        host     : 'localhost',
+        user     : 'root',
+        password : '123',
+        database : 'flow_p'
+    });
+}
+crPool();//Первичная инициация pool
+
 var resetPool = function(){
-    if(pool){
-        console.log("pool established, reset success");
-    }else{
-        console.log("pool not established, reset unsuccess");
+    if(!Global.sqlResetQuery){
+        Global.sqlResetQuery = true;
+        if(pool){
+            console.log("pool established, reset success");
+            pool.end(function(err){//delete pool
+                pool = null;
+                if(!err){
+                    console.log("pool end without error");
+                    crPool();
+                    registerSQLLocal();
+                }else{
+                    console.log("pool end with ERROR");
+                    console.log("ERROR:"+util.inspect(err,{colors:true}));
+                }
+                Global.sqlResetQuery = false;
+            });
+        }else{
+            crPool();
+            registerSQLLocal();
+            console.log("pool not established, reset unsuccess");
+        }
     }
 }
 var checkPool = function(str){
@@ -309,68 +334,47 @@ var checkPool = function(str){
         console.log("pool not defined");
     }
 }
-//----------Prepare 2 permanent connection to SQL
-function permConSQL(){
-    pool.getConnection(function(err, connection) {
-        if(err){
-            socketServ.sockets.emit("mysql_error",{});
-            console.log("pool error");
-        }else{
-            socketServ.sockets.emit("all_ok",{});
-             console.log("No error SQL {LOCAL} all ok");
-            Global.connection = connection;
-            Global.schedullerTube = setInterval(rcvTubes,1000);
-        }    
-    });
-    pool.getConnection(function(err, connection) {
-        if(err){
-            socketServ.sockets.emit("mysql_error",{});
-            console.log("pool error");
-        }else{
-            socketServ.sockets.emit("all_ok",{});
-             console.log("No error SQL {LOCAL} all ok");
-            Global.connection = connection;
-            Global.schedullerTube = setInterval(rcvTubes,1000);
-        }    
-    });
-} 
-//----------------------------------------------------------
 
+//----------------------------------------------------------
+function registerSQLLocal(){
+    if(!Global.sqlResetQuery){
+        Global.sqlResetQuery = true;
+        if(Global.schedullerTube){
+            clearInterval(Global.schedullerTube);
+            console.log("interval clear reset");
+        }
+        if(Global.connection){
+            Global.connection.release();
+            Global.connection = null;
+        }    
+        pool.getConnection(function(err, connection) {
+            if(err){
+                console.log("pool register error");
+                Global.sqlResetQuery = false;
+                resetPool();
+            }else{
+                socketServ.sockets.emit("all_ok",{});
+                console.log("Register SQL local success");
+                Global.connection = connection;
+                Global.schedullerTube = setInterval(rcvTubes,1000);
+                Global.sqlResetQuery = false;
+            }    
+        });
+    }
+    
+}
 
 client.connect();
 
-
-pool.on("connection", function(connection){
+/*pool.on("connection", function(connection){
     console.log("con event start");
-})
+})*/
 
 // reconnect with client.reconnect()
 
 client.on('connect', function () {
     console.log("PLC connected");
-    //----------
-    if(Global.schedullerTube){
-            clearInterval(Global.schedullerTube);
-            console.log("interval clear first reset");
-        }
-    if(Global.connection){
-        Global.connection.release();
-        Global.connection = null;
-    }
-    
-    //NEED REFACTORING
-    
-    pool.getConnection(function(err, connection) {
-        if(err){
-            socketServ.sockets.emit("mysql_error",{});
-            console.log("pool error");
-        }else{
-            socketServ.sockets.emit("all_ok",{});
-             console.log("No error SQL {LOCAL} all ok");
-            Global.connection = connection;
-            Global.schedullerTube = setInterval(rcvTubes,1000);
-        }    
-    });
+    registerSQLLocal();
 });
 
 client.on('error', function (err) {
@@ -388,20 +392,23 @@ client.on('error', function (err) {
 
 function rcvTubes(){
     client.readInputRegisters(15, 8).then(function (resp) {
-        //console.log(resp);
         var res = [];
         res[0] = WordToFloat(resp.register[1],resp.register[0]).toFixed(2);
         res[1] = WordToFloat(resp.register[3],resp.register[2]).toFixed(2);
         res[2] = WordToFloat(resp.register[5],resp.register[4]).toFixed(2);
         res[3] = WordToFloat(resp.register[7],resp.register[6]).toFixed(2);
-        //console.log("1:"+res[0]+" 2:"+res[1]+" 3:"+res[2]+" 4:"+res[3]+" heap = "+process.memoryUsage().heapUsed);
+        console.log("1:"+res[0]+" 2:"+res[1]+" 3:"+res[2]+" 4:"+res[3]+" heap = "+process.memoryUsage().heapUsed);
         
         var nowdt = Date.now();
         FESender(res,nowdt);
         if(Global.serverCon){
             ServerSender(res,nowdt);
         }else{
-            DBWriter(res,nowdt);
+            if(Global.connection){
+                DBWriter(res,nowdt);
+            }else{
+                registerSQLLocal();
+            }
         }
     }).fail(function(e){
         console.log(e);
@@ -411,9 +418,7 @@ function rcvTubes(){
         }
         socketServ.sockets.emit("mb_error",{});
     });
-};
-//console.log("hello world");
-//socketServ.sockets.emit("all_ok",{"tube1":[Number(nowdt),Number(tube1)]});
+}; 
 //----------------------------------
 function DBWriter(data,nowdt){
     var tmpQ = "";
