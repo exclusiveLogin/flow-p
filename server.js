@@ -81,6 +81,9 @@ function WatchDog(){
 };
 
 
+//*******************WDSQL*****************************
+
+
 
 function checkDB(){
     console.log("check DB");
@@ -430,6 +433,7 @@ function DBWriter(data,nowdt){
                 if(err){
                     console.log(err);
                     socketServ.emit("mysql_error",{});
+                    registerSQLLocal();
                 }
             });
         }
@@ -440,6 +444,7 @@ function DBWriter(data,nowdt){
                 if(err){
                     console.log(err);
                     socketServ.emit("mysql_error",{});
+                    registerSQLLocal();
                 }
             });
         }
@@ -450,6 +455,7 @@ function DBWriter(data,nowdt){
                 if(err){
                     console.log(err);
                     socketServ.emit("mysql_error",{});
+                    registerSQLLocal();
                 }
             });
         }
@@ -460,6 +466,7 @@ function DBWriter(data,nowdt){
                 if(err){
                     console.log(err);
                     socketServ.emit("mysql_error",{});
+                    registerSQLLocal();
                 }
             });
         }
