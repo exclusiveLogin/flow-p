@@ -21,7 +21,7 @@ function SocToNBRecon(){
         setTimeout(SocToNBRecon,10000);
     }else{
         console.log("SocketCL init");
-        socketCl = require('socket.io-client')('http://10.210.30.148:3001');
+        socketCl = require('socket.io-client')('http://10.210.30.211:3001');
         //***********************CLIENT*************************
 
         socketCl.on('connect', function(){
