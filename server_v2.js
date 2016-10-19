@@ -66,7 +66,7 @@ function SocToNBRecon(){
 SocToNBRecon();//первичная инициация socket to NB
 
 //***********************WTD****************************
-//WatchDog();
+WatchDog();
 
 function WatchDog(){
     if(Global.serverCon){
@@ -179,7 +179,7 @@ function replicator(){
     pool.getConnection(function(err, connection) {
         if(!err && socketCl){
             var tmpReplQuery = "";
-            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube1_dump` ORDER BY `id` ASC LIMIT 50'; 
+            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube1_dump` ORDER BY `id` ASC LIMIT 5'; 
             connection.query(tmpReplQuery,function(err,data,row){
                 if(data.length>0){
                     cont.tube1 = data;
@@ -195,7 +195,7 @@ function replicator(){
                     cont.tube1 = null;
                 }                
             });
-            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube2_dump` ORDER BY `id` ASC LIMIT 50'; 
+            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube2_dump` ORDER BY `id` ASC LIMIT 5'; 
             connection.query(tmpReplQuery,function(err,data,row){
                 if(data.length>0){
                     cont.tube2 = data;
@@ -211,7 +211,7 @@ function replicator(){
                     cont.tube2 = null;
                 }                
             });
-            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube3_dump` ORDER BY `id` ASC LIMIT 50'; 
+            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube3_dump` ORDER BY `id` ASC LIMIT 5'; 
             connection.query(tmpReplQuery,function(err,data,row){
                 if(data.length){
                     cont.tube3 = data;
@@ -227,7 +227,7 @@ function replicator(){
                     cont.tube3 = null;
                 }
             });
-            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube4_dump` ORDER BY `id` ASC LIMIT 50'; 
+            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube4_dump` ORDER BY `id` ASC LIMIT 5'; 
             connection.query(tmpReplQuery,function(err,data,row){
                 if(data.length){
                     cont.tube4 = data;
@@ -360,7 +360,7 @@ function registerSQLLocal(){
                 socketServ.sockets.emit("all_ok",{});
                 console.log("Register SQL local success");
                 Global.connection = connection;
-                Global.schedullerTube = setInterval(rcvTubes,250);
+                Global.schedullerTube = setInterval(rcvTubes,60);
                 Global.sqlResetQuery = false;
             }    
         });
