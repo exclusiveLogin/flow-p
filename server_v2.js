@@ -30,6 +30,7 @@ function SocToNBRecon(){
             setTimeout(checkDB,10000);
             socketCl.emit("id",{"name":"OPC_Prichal"});
             Global.serverCon = true;
+            sqlRelease();
             //console.log(util.inspect(socketCl,{colors:true}));
         });
         socketCl.on('discon', function(){
@@ -39,10 +40,12 @@ function SocToNBRecon(){
         socketCl.on('connect_error', function(){
             console.log("connect to server error");
             Global.serverCon = false;
+            //registerSQLLocal();
         });
         socketCl.on('connect_timeout', function(){
             console.log("connect to server error by timeout");
             Global.serverCon = false;
+            //registerSQLLocal();
         });
         socketCl.on('msg', function(data){
             console.log("data:"+data.data);
@@ -52,8 +55,6 @@ function SocToNBRecon(){
             checkDB();
         });
         socketCl.on('free', function(data){
-            console.log("free from 0 to "+data.lid+" ID on tube:"+data.tube);
-            Global.freeLock = true;
             freenerDB(data.lid, data.tube);
         });
         socketCl.on('send_free', function(data){
@@ -69,11 +70,15 @@ SocToNBRecon();//первичная инициация socket to NB
 WatchDog();
 
 function WatchDog(){
+    //Global.sendLock = false;
+    //Global.freeLock = false;
     if(Global.serverCon){
         if(Global.SendQuery){
             Global.SendQuery = false;
             console.log("WTD ping");        
             checkDB();
+        }else{
+            //console.log("WTD: no query");
         }
     }else{
         console.log("WTD: server not connected");
@@ -179,7 +184,7 @@ function replicator(){
     pool.getConnection(function(err, connection) {
         if(!err && socketCl){
             var tmpReplQuery = "";
-            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube1_dump` ORDER BY `id` ASC LIMIT 5'; 
+            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube1_dump` ORDER BY `id` ASC LIMIT 1000'; 
             connection.query(tmpReplQuery,function(err,data,row){
                 if(data.length>0){
                     cont.tube1 = data;
@@ -189,13 +194,13 @@ function replicator(){
                             socketCl.emit("replica",cont);
                         }
                     }else{
-                        console.log("SEND LOCK tube 1");
+                        console.log("SEND LOCK tube 1 freelock:"+Global.freeLock+" sendlock:"+Global.sendLock);
                         Global.SendQuery = true;
                     }      
                     cont.tube1 = null;
                 }                
             });
-            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube2_dump` ORDER BY `id` ASC LIMIT 5'; 
+            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube2_dump` ORDER BY `id` ASC LIMIT 1000'; 
             connection.query(tmpReplQuery,function(err,data,row){
                 if(data.length>0){
                     cont.tube2 = data;
@@ -205,13 +210,13 @@ function replicator(){
                             socketCl.emit("replica",cont); 
                         }
                     }else{
-                        console.log("SEND LOCK tube 2");
+                        console.log("SEND LOCK tube 2 freelock:"+Global.freeLock+" sendlock:"+Global.sendLock);
                         Global.SendQuery = true;
                     }        
                     cont.tube2 = null;
                 }                
             });
-            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube3_dump` ORDER BY `id` ASC LIMIT 5'; 
+            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube3_dump` ORDER BY `id` ASC LIMIT 1000'; 
             connection.query(tmpReplQuery,function(err,data,row){
                 if(data.length){
                     cont.tube3 = data;
@@ -221,13 +226,13 @@ function replicator(){
                             socketCl.emit("replica",cont);  
                         }
                     }else{
-                        console.log("SEND LOCK tube 3");
+                        console.log("SEND LOCK tube 3 freelock:"+Global.freeLock+" sendlock:"+Global.sendLock);
                         Global.SendQuery = true;
                     }         
                     cont.tube3 = null;
                 }
             });
-            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube4_dump` ORDER BY `id` ASC LIMIT 5'; 
+            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube4_dump` ORDER BY `id` ASC LIMIT 1000'; 
             connection.query(tmpReplQuery,function(err,data,row){
                 if(data.length){
                     cont.tube4 = data;
@@ -237,7 +242,7 @@ function replicator(){
                             socketCl.emit("replica",cont); 
                         }
                     }else{
-                        console.log("SEND LOCK tube 4");
+                        console.log("SEND LOCK tube 4 freelock:"+Global.freeLock+" sendlock:"+Global.sendLock);
                         Global.SendQuery = true;
                     }          
                     cont.tube4 = null;
@@ -250,6 +255,7 @@ function replicator(){
     });
 };
 function freenerDB(lid,tube){
+    Global.freeLock = true;
     pool.getConnection(function(err, connection) {
         if(!err){
             var tmpReplQuery = "";
@@ -261,8 +267,10 @@ function freenerDB(lid,tube){
                 }else{
                     console.log("data free where utc < "+lid+"  on tube:"+tube);
                     //replica may be
-                    socketCl.emit("free_free",{});
+                    //socketCl.emit("free_free",{});
                     Global.freeLock = false;
+                    Global.sendLock = false;
+                    checkDB();
                 }
             });
         }else{
@@ -343,24 +351,16 @@ var checkPool = function(str){
 function registerSQLLocal(){
     if(!Global.sqlResetQuery){
         Global.sqlResetQuery = true;
-        if(Global.schedullerTube){
-            clearInterval(Global.schedullerTube);
-            console.log("interval clear reset");
-        }
-        if(Global.connection){
-            Global.connection.release();
-            Global.connection = null;
-        }    
+        stopOPC();
+        sqlRelease();
         pool.getConnection(function(err, connection) {
             if(err){
                 console.log("pool register error");
                 Global.sqlResetQuery = false;
                 resetPool();
             }else{
-                socketServ.sockets.emit("all_ok",{});
                 console.log("Register SQL local success");
                 Global.connection = connection;
-                Global.schedullerTube = setInterval(rcvTubes,60);
                 Global.sqlResetQuery = false;
             }    
         });
@@ -368,30 +368,41 @@ function registerSQLLocal(){
     
 }
 
+function sqlRelease(){
+    if(Global.connection){
+        Global.connection.release();
+        Global.connection=null;
+        console.log("local SQL connection reset");
+    }else{
+        console.log("SQLRelease:connection not found");
+    }
+}
+
+function startOPC(){
+    Global.schedullerTube = setInterval(rcvTubes,60);
+    console.log("startOPC");
+}
+function stopOPC(){
+    if(Global.schedullerTube){
+        clearInterval(Global.schedullerTube);
+        console.log("stop OPC");
+    }
+}
+
 client.connect();
-
-/*pool.on("connection", function(connection){
-    console.log("con event start");
-})*/
-
-// reconnect with client.reconnect()
 
 client.on('connect', function () {
     console.log("PLC connected");
-    registerSQLLocal();
+    //registerSQLLocal();
+    startOPC();
 });
 
 client.on('error', function (err) {
     socketServ.sockets.emit("mb_error",{});
     console.log("ERROR MODBUS");
     console.log(err);
-    if(Global.connection){
-        Global.connection.release();
-        Global.connection=null;
-    }
-    if(Global.schedullerTube){
-        clearInterval(Global.schedullerTube);
-    }
+    //sqlRelease();
+    stopOPC();
 });
 
 //Prebuffer rcvTubes
@@ -490,15 +501,15 @@ function rcvTubes(){
             
             
             //отправка
-            console.log("-----------------SEND max----------------------");
-            console.log(util.inspect("max val:"+Global.buffer_valmax,{colors:true}));
-            console.log(util.inspect("dt:"+Global.buffer_dtmax,{colors:true}));
+            //console.log("-----------------SEND max----------------------");
+            //console.log(util.inspect("max val:"+Global.buffer_valmax,{colors:true}));
+            //console.log(util.inspect("dt:"+Global.buffer_dtmax,{colors:true}));
             //prepare send packet
             
             //отправка
-            console.log("-----------------SEND min----------------------");
-            console.log(util.inspect("min val:"+Global.buffer_valmin,{colors:true}));
-            console.log(util.inspect("td:"+Global.buffer_dtmin,{colors:true}));
+            //console.log("-----------------SEND min----------------------");
+            //console.log(util.inspect("min val:"+Global.buffer_valmin,{colors:true}));
+            //console.log(util.inspect("td:"+Global.buffer_dtmin,{colors:true}));
                 
             Global.bufferStep = 0;
             FESender(Global.buffer_valmax,Global.buffer_dtmax);
@@ -520,10 +531,7 @@ function rcvTubes(){
         
     }).fail(function(e){
         console.log(e);
-        if(Global.schedullerTube){
-            clearInterval(Global.schedullerTube);
-            console.log("interval clear RCV TUBES");
-        }
+        stopOPC();
         socketServ.sockets.emit("mb_error",{});
     });
 }; 
@@ -599,7 +607,7 @@ function FESender(data,nowdt){
 function ServerSender(data,nowdt){
     if(socketCl){
         //console.log("Отправка данных Серверу WS");
-        console.log(util.inspect(data,{colors:true}));
+        //console.log(util.inspect(data,{colors:true}));
         socketCl.emit("RTSend",{"tubes":data,"time":nowdt});
     }else{
         console.log("ERR WS нет socketCL");
