@@ -12,3 +12,3881 @@ DB empty tube 3
 DB empty tube 4
 data NOT need send
 reset flags
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+PLC connected
+startOPC
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+client connected to server
+local SQL connection reset
+check DB
+DB not empty rows on tube 1:684
+DB not empty rows on tube 2:684
+DB not empty rows on tube 3:684
+DB not empty rows on tube 4:684
+data need send
+reset flags
+SEND LOCK tube 2 freelock:undefined sendlock:true
+SEND LOCK tube 3 freelock:undefined sendlock:true
+SEND LOCK tube 4 freelock:undefined sendlock:true
+WTD ping
+check DB
+DB not empty rows on tube 1:684
+DB not empty rows on tube 2:684
+DB not empty rows on tube 3:684
+DB not empty rows on tube 4:684
+data need send
+reset flags
+SEND LOCK tube 1 freelock:undefined sendlock:true
+SEND LOCK tube 2 freelock:undefined sendlock:true
+SEND LOCK tube 3 freelock:undefined sendlock:true
+SEND LOCK tube 4 freelock:undefined sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:684
+DB not empty rows on tube 2:684
+DB not empty rows on tube 3:684
+DB not empty rows on tube 4:684
+data need send
+reset flags
+SEND LOCK tube 1 freelock:undefined sendlock:true
+SEND LOCK tube 2 freelock:undefined sendlock:true
+SEND LOCK tube 3 freelock:undefined sendlock:true
+SEND LOCK tube 4 freelock:undefined sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:684
+DB not empty rows on tube 2:684
+DB not empty rows on tube 3:684
+DB not empty rows on tube 4:684
+data need send
+reset flags
+SEND LOCK tube 2 freelock:true sendlock:false
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479275270450  on tube:1
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:684
+DB not empty rows on tube 3:684
+DB not empty rows on tube 4:684
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:684
+DB not empty rows on tube 3:684
+DB not empty rows on tube 4:684
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:684
+DB not empty rows on tube 3:684
+DB not empty rows on tube 4:684
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479275270646  on tube:2
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:684
+DB not empty rows on tube 4:684
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:684
+DB not empty rows on tube 4:684
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:684
+DB not empty rows on tube 4:684
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479275270964  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:684
+data need send
+reset flags
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:684
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:1
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479275270450  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:1
+data need send
+reset flags
+repl query
+check DB
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 1
+DB empty tube 2
+DB empty tube 2
+DB empty tube 3
+DB empty tube 3
+DB not empty rows on tube 4:1
+data need send
+reset flags
+DB not empty rows on tube 4:1
+data need send
+reset flags
+data free where utc < 1479275270964  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+WTD ping
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+connect to server error
+client connected to server
+local SQL connection reset
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+PLC connected
+startOPC
+client Front End connected
+client connected to server
+SQLRelease:connection not found
+client Front End connected
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+client connected to server
+SQLRelease:connection not found
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+client Front End connected
+client Front End connected
+client Front End connected
+client connected to server
+SQLRelease:connection not found
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+connect to server error
+connect to server error by timeout
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+client connected to server
+local SQL connection reset
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+PLC connected
+startOPC
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+client connected to server
+local SQL connection reset
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+PLC connected
+startOPC
+connect to server error
+connect to server error by timeout
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+client connected to server
+local SQL connection reset
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+PLC connected
+startOPC
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+client connected to server
+local SQL connection reset
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+PLC connected
+startOPC
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+connect to server error
+client connected to server
+local SQL connection reset
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+client Front End connected
+PLC connected
+startOPC
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+client connected to server
+local SQL connection reset
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+PLC connected
+startOPC
+client Front End connected
+client Front End connected
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+client connected to server
+local SQL connection reset
+PLC connected
+startOPC
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+connect to server error
+connect to server error
+WTD: server not connected
+client connected to server
+local SQL connection reset
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+PLC connected
+startOPC
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+PLC connected
+startOPC
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+client connected to server
+local SQL connection reset
+check DB
+DB not empty rows on tube 1:650
+DB not empty rows on tube 2:650
+DB not empty rows on tube 3:650
+DB not empty rows on tube 4:650
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:650
+DB not empty rows on tube 2:650
+DB not empty rows on tube 3:650
+DB not empty rows on tube 4:650
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:650
+DB not empty rows on tube 2:650
+DB not empty rows on tube 3:650
+DB not empty rows on tube 4:650
+data need send
+reset flags
+data free where utc < 1479797460659  on tube:1
+check DB
+DB empty tube 1
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 2:650
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 3:650
+DB not empty rows on tube 4:650
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:650
+DB not empty rows on tube 3:650
+DB not empty rows on tube 4:650
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:650
+DB not empty rows on tube 3:650
+DB not empty rows on tube 4:650
+data need send
+reset flags
+SEND LOCK tube 2 freelock:true sendlock:false
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479797460659  on tube:2
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:1
+DB not empty rows on tube 3:650
+DB not empty rows on tube 4:650
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 1
+DB not empty rows on tube 2:1
+DB not empty rows on tube 2:1
+DB not empty rows on tube 3:650
+DB not empty rows on tube 3:650
+DB not empty rows on tube 4:650
+data need send
+reset flags
+DB not empty rows on tube 4:650
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479797461238  on tube:2
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:650
+DB not empty rows on tube 4:650
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:650
+DB not empty rows on tube 4:650
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:1
+DB not empty rows on tube 4:650
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479797460659  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:1
+DB not empty rows on tube 4:650
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 1
+DB empty tube 2
+DB empty tube 2
+DB empty tube 3
+DB empty tube 3
+DB not empty rows on tube 4:650
+data need send
+reset flags
+DB not empty rows on tube 4:650
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479797460912  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:650
+data need send
+reset flags
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:650
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:1
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479797460789  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:1
+data need send
+reset flags
+repl query
+check DB
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 1
+DB empty tube 2
+DB empty tube 2
+DB empty tube 3
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+DB empty tube 4
+data NOT need send
+reset flags
+data free where utc < 1479797461173  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+WTD ping
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+PLC connected
+startOPC
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+client connected to server
+local SQL connection reset
+client Front End connected
+check DB
+DB not empty rows on tube 1:658
+DB not empty rows on tube 2:658
+DB not empty rows on tube 3:658
+DB not empty rows on tube 4:658
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:658
+DB not empty rows on tube 2:658
+DB not empty rows on tube 3:658
+DB not empty rows on tube 4:658
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:658
+DB not empty rows on tube 2:658
+DB not empty rows on tube 3:658
+DB not empty rows on tube 4:658
+data need send
+reset flags
+SEND LOCK tube 2 freelock:true sendlock:false
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479798671062  on tube:1
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:658
+DB not empty rows on tube 3:658
+DB not empty rows on tube 4:658
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:658
+DB not empty rows on tube 3:658
+DB not empty rows on tube 4:658
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:1
+DB not empty rows on tube 3:658
+DB not empty rows on tube 4:658
+data need send
+reset flags
+SEND LOCK tube 2 freelock:true sendlock:false
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479798671062  on tube:2
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:1
+DB not empty rows on tube 3:658
+DB not empty rows on tube 4:658
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:1
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 3:658
+DB not empty rows on tube 2:1
+DB not empty rows on tube 3:658
+DB not empty rows on tube 4:658
+data need send
+reset flags
+DB not empty rows on tube 4:658
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479798671314  on tube:2
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:658
+DB not empty rows on tube 4:658
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:658
+DB not empty rows on tube 4:658
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:658
+DB not empty rows on tube 4:658
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479798671062  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:1
+DB not empty rows on tube 4:658
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+WTD ping
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:1
+DB not empty rows on tube 4:658
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 1
+DB empty tube 2
+DB empty tube 2
+DB empty tube 3
+DB empty tube 3
+DB not empty rows on tube 4:658
+data need send
+reset flags
+DB not empty rows on tube 4:658
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479798671572  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:658
+data need send
+reset flags
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:658
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+data free where utc < 1479798671126  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+WTD ping
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+client connected to server
+SQLRelease:connection not found
+client Front End connected
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+PLC connected
+startOPC
+client Front End connected
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+client connected to server
+local SQL connection reset
+check DB
+DB not empty rows on tube 1:544
+DB not empty rows on tube 2:544
+DB not empty rows on tube 3:544
+DB not empty rows on tube 4:544
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:544
+DB not empty rows on tube 2:544
+DB not empty rows on tube 3:544
+DB not empty rows on tube 4:544
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:544
+DB not empty rows on tube 2:544
+DB not empty rows on tube 3:544
+DB not empty rows on tube 4:544
+data need send
+reset flags
+SEND LOCK tube 1 freelock:true sendlock:false
+SEND LOCK tube 2 freelock:true sendlock:false
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479818332116  on tube:1
+check DB
+DB not empty rows on tube 1:1
+DB not empty rows on tube 2:544
+DB not empty rows on tube 3:544
+DB not empty rows on tube 4:544
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+WTD ping
+check DB
+DB not empty rows on tube 1:1
+DB not empty rows on tube 2:544
+DB not empty rows on tube 3:544
+DB not empty rows on tube 4:544
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+you may send stack
+check DB
+DB not empty rows on tube 1:1
+DB not empty rows on tube 1:1
+DB not empty rows on tube 2:544
+DB not empty rows on tube 2:544
+DB not empty rows on tube 3:544
+DB not empty rows on tube 3:544
+DB not empty rows on tube 4:544
+data need send
+reset flags
+DB not empty rows on tube 4:544
+data need send
+reset flags
+SEND LOCK tube 2 freelock:true sendlock:false
+SEND LOCK tube 2 freelock:true sendlock:false
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479818332629  on tube:1
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:544
+DB not empty rows on tube 3:544
+DB not empty rows on tube 4:544
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:544
+DB not empty rows on tube 3:544
+DB not empty rows on tube 4:544
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:1
+DB not empty rows on tube 3:544
+DB not empty rows on tube 4:544
+data need send
+reset flags
+SEND LOCK tube 2 freelock:true sendlock:false
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479818332181  on tube:2
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:1
+DB not empty rows on tube 3:544
+DB not empty rows on tube 4:544
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 1
+DB not empty rows on tube 2:1
+DB not empty rows on tube 2:1
+DB not empty rows on tube 3:544
+DB not empty rows on tube 3:544
+DB not empty rows on tube 4:544
+data need send
+reset flags
+DB not empty rows on tube 4:544
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479818332433  on tube:2
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:544
+DB not empty rows on tube 4:544
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:544
+DB not empty rows on tube 4:544
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:544
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479818332246  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:544
+data need send
+reset flags
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:544
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:1
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1479818332181  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:1
+data need send
+reset flags
+repl query
+check DB
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 1
+DB empty tube 3
+DB empty tube 2
+DB empty tube 4
+data NOT need send
+reset flags
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+data free where utc < 1479818332694  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+WTD ping
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client connected to server
+SQLRelease:connection not found
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+connect to server error
+connect to server error
+connect to server error
+client connected to server
+local SQL connection reset
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+PLC connected
+startOPC
+client Front End connected
+client Front End connected
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+client connected to server
+local SQL connection reset
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+PLC connected
+startOPC
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+connect to server error
+client connected to server
+local SQL connection reset
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+PLC connected
+startOPC
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+client Front End connected
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+PLC connected
+startOPC
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+client Front End connected
+client connected to server
+local SQL connection reset
+check DB
+DB not empty rows on tube 1:12480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:12480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:12480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:true sendlock:false
+SEND LOCK tube 2 freelock:true sendlock:false
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480588814786  on tube:1
+check DB
+DB not empty rows on tube 1:11480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:11480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:11480
+DB not empty rows on tube 2:12480
+data free where utc < 1480589133959  on tube:1
+check DB
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 1:10480
+SEND LOCK tube 2 freelock:false sendlock:true
+DB not empty rows on tube 2:12480
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:10480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:10480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+data free where utc < 1480589453142  on tube:1
+check DB
+DB not empty rows on tube 1:9480
+DB not empty rows on tube 2:12480
+SEND LOCK tube 2 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+WTD ping
+check DB
+DB not empty rows on tube 1:9480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:9480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:9480
+DB not empty rows on tube 2:12480
+data free where utc < 1480589772118  on tube:1
+check DB
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 1:8481
+SEND LOCK tube 2 freelock:false sendlock:true
+DB not empty rows on tube 2:12480
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:8481
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:8481
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+data free where utc < 1480590091216  on tube:1
+check DB
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 1:7480
+SEND LOCK tube 2 freelock:false sendlock:true
+DB not empty rows on tube 2:12480
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:7480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:7480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+data free where utc < 1480590410250  on tube:1
+check DB
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 1:6480
+DB not empty rows on tube 2:12480
+SEND LOCK tube 2 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:6480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:6480
+DB not empty rows on tube 2:12480
+data free where utc < 1480590729283  on tube:1
+check DB
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 1:5480
+DB not empty rows on tube 2:12480
+SEND LOCK tube 2 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:5480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:5480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+data free where utc < 1480591048313  on tube:1
+check DB
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 1:4480
+SEND LOCK tube 2 freelock:false sendlock:true
+DB not empty rows on tube 2:12480
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:4480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:4480
+DB not empty rows on tube 2:12480
+data free where utc < 1480591367358  on tube:1
+check DB
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 1:3481
+SEND LOCK tube 2 freelock:false sendlock:true
+DB not empty rows on tube 2:12480
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:3481
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:3481
+DB not empty rows on tube 2:12480
+data free where utc < 1480591686532  on tube:1
+check DB
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 1:2481
+DB not empty rows on tube 2:12480
+SEND LOCK tube 2 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:2481
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:2481
+DB not empty rows on tube 2:12480
+data free where utc < 1480592005567  on tube:1
+check DB
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 1:1480
+SEND LOCK tube 2 freelock:false sendlock:true
+DB not empty rows on tube 2:12480
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:1480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:1480
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+data free where utc < 1480592324578  on tube:1
+check DB
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 1:481
+SEND LOCK tube 2 freelock:false sendlock:true
+DB not empty rows on tube 2:12480
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:481
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB not empty rows on tube 1:481
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+data free where utc < 1480592477718  on tube:1
+check DB
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 1:1
+SEND LOCK tube 2 freelock:false sendlock:true
+DB not empty rows on tube 2:12480
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+WTD ping
+check DB
+DB not empty rows on tube 1:1
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 1 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB not empty rows on tube 1:1
+DB not empty rows on tube 2:12480
+you may send stack
+check DB
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 1:1
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 3:12480
+data free where utc < 1480592478166  on tube:1
+check DB
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB empty tube 1
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+SEND LOCK tube 2 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:12480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+data free where utc < 1480588814980  on tube:2
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:11481
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:11481
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:11481
+DB not empty rows on tube 3:12480
+data free where utc < 1480589134151  on tube:2
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:10481
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:10481
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:10481
+DB not empty rows on tube 3:12480
+data free where utc < 1480589453142  on tube:2
+check DB
+DB empty tube 1
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 2:9481
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:9481
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:9481
+DB not empty rows on tube 3:12480
+data free where utc < 1480589772695  on tube:2
+check DB
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB empty tube 1
+DB not empty rows on tube 2:8480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:8480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:8480
+DB not empty rows on tube 3:12480
+data free where utc < 1480590091470  on tube:2
+check DB
+DB empty tube 1
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 2:7480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:7480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:7480
+DB not empty rows on tube 3:12480
+data free where utc < 1480590410630  on tube:2
+check DB
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB empty tube 1
+DB not empty rows on tube 2:6481
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:6481
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:6481
+DB not empty rows on tube 3:12480
+data free where utc < 1480590729346  on tube:2
+check DB
+DB empty tube 1
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 2:5481
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:5481
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:5481
+DB not empty rows on tube 3:12480
+data free where utc < 1480591048439  on tube:2
+check DB
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB empty tube 1
+DB not empty rows on tube 2:4481
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:4481
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+WTD ping
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:4481
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:4481
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+data free where utc < 1480591367552  on tube:2
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:3480
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:3480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:3480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+data free where utc < 1480591686722  on tube:2
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:2480
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:2480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:2480
+DB not empty rows on tube 3:12480
+data free where utc < 1480592005567  on tube:2
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:1481
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:1481
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:1481
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:true sendlock:false
+SEND LOCK tube 3 freelock:true sendlock:false
+data free where utc < 1480592325022  on tube:2
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:12480
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+data free where utc < 1480588814851  on tube:4
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:480
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 3:12480
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 2 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:480
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 2 freelock:true sendlock:false
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480592477718  on tube:2
+check DB
+DB empty tube 1
+DB not empty rows on tube 2:1
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 1
+DB empty tube 2
+DB empty tube 2
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 3:12480
+data free where utc < 1480592477911  on tube:2
+check DB
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:12480
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:12480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:12480
+data free where utc < 1480588815107  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+DB not empty rows on tube 3:11480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:11480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:11480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480589134022  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:10481
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:10481
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:10481
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480589453522  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:9480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+WTD ping
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:9480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:9480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:9480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+data free where utc < 1480589772695  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:8480
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:8480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:8480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+data free where utc < 1480590091790  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 3:7480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:7480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:7480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480590410375  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:6480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+client Front End connected
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:6480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:6480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480590729858  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:5480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:5480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:5480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+data free where utc < 1480591048886  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:4480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:4480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:4480
+DB not empty rows on tube 4:11481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480589134088  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:4480
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:4480
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:3480
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480591367742  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:3480
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:3480
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:3480
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480591687042  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:2480
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:2480
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:2480
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+data free where utc < 1480592005823  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:1480
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:1480
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:480
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+data free where utc < 1480592325152  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:480
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+WTD ping
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:480
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:480
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:480
+DB not empty rows on tube 4:10480
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480589453142  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:480
+DB not empty rows on tube 4:9481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:480
+DB not empty rows on tube 4:9481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:false sendlock:true
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:480
+DB not empty rows on tube 4:9481
+data need send
+reset flags
+SEND LOCK tube 3 freelock:true sendlock:false
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480592477718  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB not empty rows on tube 3:1
+DB not empty rows on tube 4:9481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 2
+DB not empty rows on tube 4:9481
+data need send
+reset flags
+DB empty tube 3
+DB not empty rows on tube 4:9481
+data need send
+reset flags
+data free where utc < 1480592478231  on tube:3
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+SEND LOCK tube 4 freelock:false sendlock:true
+DB not empty rows on tube 4:9481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:9481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:9481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480589772502  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:8480
+data need send
+reset flags
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:8480
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:8480
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480590091342  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:7480
+data need send
+reset flags
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:7480
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:7480
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480590410250  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:6481
+data need send
+reset flags
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:6481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:6481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480590729283  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:5481
+data need send
+reset flags
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:5481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:5481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480591048313  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:4481
+data need send
+reset flags
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:4481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:4481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480591367486  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:3480
+data need send
+reset flags
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:3480
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:3480
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480591686532  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:2481
+data need send
+reset flags
+WTD ping
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:2481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:2481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:2481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480592005630  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:1481
+data need send
+reset flags
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:1481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:1481
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480592324831  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:480
+data need send
+reset flags
+repl query
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:480
+data need send
+reset flags
+SEND LOCK tube 4 freelock:false sendlock:true
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:1
+data need send
+reset flags
+SEND LOCK tube 4 freelock:true sendlock:false
+data free where utc < 1480592477718  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB not empty rows on tube 4:1
+data need send
+reset flags
+repl query
+check DB
+you may send stack
+check DB
+DB empty tube 1
+DB empty tube 1
+DB empty tube 2
+DB empty tube 2
+DB empty tube 3
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+DB empty tube 4
+data NOT need send
+reset flags
+data free where utc < 1480592477846  on tube:4
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+WTD ping
+check DB
+DB empty tube 1
+DB empty tube 2
+DB empty tube 3
+DB empty tube 4
+data NOT need send
+reset flags
+connect to server error
+stop OPC
+SQLRelease:connection not found
+Register SQL local success
+connect to server error
+connect to server error
+connect to server error
+connect to server error
+WTD: server not connected
+connect to server error
+connect to server error
+connect to server error
+PLC connected
+startOPC
+connect to server error
+connect to server error

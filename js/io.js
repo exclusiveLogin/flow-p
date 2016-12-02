@@ -1,7 +1,7 @@
 Global.socketToLH = undefined;
 $(document).ready(function(){
     $('#panel').html('<h2 class="label label-lg label-warning">Попытка установить связь</h2>');
-    Global.socketToLH = io('http://10.210.30.43:3000');
+    Global.socketToLH = io('http://10.210.30.210:3000');
 
     Global.socketToLH.on("connect", function(){
         $('#panel').html('<h2 class="label label-lg label-success">Связь установлена</h2>');

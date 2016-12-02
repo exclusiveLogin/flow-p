@@ -1,4 +1,4 @@
-//ver 2.0.1 
+//ver 2.1 
 var Global = {};
 Global.serverCon = false;
 Global.conSockets = [];
@@ -22,7 +22,7 @@ function SocToNBRecon(){
         setTimeout(SocToNBRecon,10000);
     }else{
         console.log("SocketCL init");
-        socketCl = require('socket.io-client')('http://10.210.30.44:3001');
+        socketCl = require('socket.io-client')('http://10.210.30.211:3001');
         //***********************CLIENT*************************
 
         socketCl.on('connect', function(){
@@ -293,7 +293,7 @@ socketServ.on("connection",function(socket){
 //***********************OPC****************************
 
 var client = modbus.client.tcp.complete({ 
-        'host'              : "10.210.30.116", 
+        'host'              : "10.210.30.214", 
         'port'              : "502",
         'autoReconnect'     : true,
         'reconnectTimeout'  : 1000,
