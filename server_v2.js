@@ -3,8 +3,8 @@ var Global = {};
 Global.serverCon = false;
 Global.conSockets = [];
 Global.checkDBTimer = false;
-Global.sendLock = false;
 Global.SendQuery = false;
+Global.WDT = false;
 var modbus = require("jsmodbus");
 var util = require("util");
 var mysql = require("mysql");
@@ -21,9 +21,11 @@ function SocToNBRecon(){
         Global.serverCon = false;
         setTimeout(SocToNBRecon,10000);
     }else{
+		//---------CLIENT----------
+		
         console.log("SocketCL init");
         socketCl = require('socket.io-client')('http://10.210.30.211:3001');
-        //***********************CLIENT*************************
+        
 
         socketCl.on('connect', function(){
             console.log("client connected to server");
@@ -50,254 +52,223 @@ function SocToNBRecon(){
         socketCl.on('msg', function(data){
             console.log("data:"+data.data);
         });
-        socketCl.on('replicateQ', function(){
-            console.log("repl query");
-            checkDB();
-        });
         socketCl.on('free', function(data){
             freenerDB(data.lid, data.tube);
-        });
-        socketCl.on('send_free', function(data){
-            console.log("you may send stack");
-            Global.sendLock = false;
-            checkDB();
         });
     }
 }
 SocToNBRecon();//первичная инициация socket to NB
 
-//***********************WTD****************************
-WatchDog();
-
+//---------WTD-----------
 function WatchDog(){
-    //Global.sendLock = false;
-    //Global.freeLock = false;
-    if(Global.serverCon){
-        if(Global.SendQuery){
-            Global.SendQuery = false;
-            console.log("WTD ping");        
-            checkDB();
-        }else{
-            //console.log("WTD: no query");
-        }
-    }else{
-        console.log("WTD: server not connected");
-    }
-    setTimeout(WatchDog, 30000);
+	this.WDTObject = false;
+	this.arm = function(time){
+		if(!time)time = 300000;
+		if(this.WDTObject)clearTimeout(this.WDTObject);
+		this.WDTObject = setTimeout(this.check, time);
+	};
+	this.disarm = function(){
+		clearTimeout(this.WDTObject);
+	};
+	this.check = function(){
+		if(Global.serverCon){
+			console.log("WTD ping"); 		
+			checkDB();
+		}
+	};
 };
+Global.WDT = new WatchDog();
 
 
-//*******************WDSQL*****************************
-
-
+//-------WDSQL------------
+function* prohod(){
+	yield new Promise(function(resolve,reject){
+		var tmpReplQuery = "";
+		tmpReplQuery = "SELECT * FROM `tube1_dump`"; 
+		pool.getConnection(function(err, connection) {
+			if(!err){
+				connection.query(tmpReplQuery,function(err,data,row){
+					if(data.length){
+						console.log("DB not empty rows on tube 1:"+data.length);needSend = true;
+						resolve({tube:1, len:data.length});
+					}else{
+						console.log("DB empty tube 1");
+						resolve({tube:1});
+					}
+				});
+			}
+			else{
+				socketServ.sockets.emit("mysql_error",{});
+				reject(err);
+			}
+			connection.release();
+			//console.log("con release tube 1");
+		});
+	});
+	
+	yield new Promise(function(resolve,reject){
+		var tmpReplQuery = "";
+		tmpReplQuery = "SELECT * FROM `tube2_dump`"; 
+		pool.getConnection(function(err, connection) {
+			if(!err){
+				connection.query(tmpReplQuery,function(err,data,row){
+					if(data.length){
+						console.log("DB not empty rows on tube 2:"+data.length);needSend = true;
+						resolve({tube:2, len:data.length});
+					}else{
+						console.log("DB empty tube 2");
+						resolve({tube:2});
+					}
+				});
+			}
+			else{
+				socketServ.sockets.emit("mysql_error",{});
+				reject(err);
+			}
+			connection.release();
+			//console.log("con release tube 2");
+		});
+	});
+	
+	yield new Promise(function(resolve,reject){
+		var tmpReplQuery = "";
+		tmpReplQuery = "SELECT * FROM `tube3_dump`"; 
+		pool.getConnection(function(err, connection) {
+			if(!err){
+				connection.query(tmpReplQuery,function(err,data,row){
+					if(data.length){
+						console.log("DB not empty rows on tube 3:"+data.length);needSend = true;
+						resolve({tube:3, len:data.length});
+					}else{
+						console.log("DB empty tube 3");
+						resolve({tube:3});
+					}
+				});
+			}
+			else{
+				socketServ.sockets.emit("mysql_error",{});
+				reject(err);
+			}
+			connection.release();
+			//console.log("con release tube 3");
+		});
+	});
+	
+	yield new Promise(function(resolve,reject){
+		var tmpReplQuery = "";
+		tmpReplQuery = "SELECT * FROM `tube4_dump`"; 
+		pool.getConnection(function(err, connection) {
+			if(!err){
+				connection.query(tmpReplQuery,function(err,data,row){
+					if(data.length){
+						console.log("DB not empty rows on tube 4:"+data.length);needSend = true;
+						resolve({tube:4, len:data.length});
+					}else{
+						console.log("DB empty tube 4");
+						resolve({tube:4});
+					}
+				});
+			}
+			else{
+				socketServ.sockets.emit("mysql_error",{});
+				reject(err);
+			}
+			connection.release();
+			//console.log("con release tube 4");
+		});
+	});
+}
 
 function checkDB(){
     console.log("check DB");
-    var states = {
-        tube1:false,
-        tube2:false,
-        tube3:false,
-        tube4:false
-    };
-    var needSend = false;
-    
+
     if(Global.serverCon){
-        pool.getConnection(function(err, connection) {
-            if(!err){
-                var tmpReplQuery = "";
-                tmpReplQuery = "SELECT * FROM `tube1_dump`";
-                connection.query(tmpReplQuery,function(err,data,row){
-                    if(data.length){
-                        console.log("DB not empty rows on tube 1:"+data.length);
-                        needSend = true;
-                    }else{
-                        console.log("DB empty tube 1");
-                    }
-                    states.tube1 = true;
-                    checkIT();
-                });
-                tmpReplQuery = "SELECT * FROM `tube2_dump`";
-                connection.query(tmpReplQuery,function(err,data,row){
-                    if(data.length){
-                        console.log("DB not empty rows on tube 2:"+data.length);
-                        needSend = true;
-                    }else{
-                        console.log("DB empty tube 2");
-                    }
-                    states.tube2 = true;
-                    checkIT();
-                });
-                tmpReplQuery = "SELECT * FROM `tube3_dump`";
-                connection.query(tmpReplQuery,function(err,data,row){
-                    if(data.length){
-                        console.log("DB not empty rows on tube 3:"+data.length);
-                        needSend = true;
-                    }else{
-                        console.log("DB empty tube 3");
-                    }
-                    states.tube3 = true;
-                    checkIT();
-                });
-                tmpReplQuery = "SELECT * FROM `tube4_dump`";
-                connection.query(tmpReplQuery,function(err,data,row){
-                    if(data.length){
-                        console.log("DB not empty rows on tube 4:"+data.length);
-                        needSend = true;
-                    }else{
-                        console.log("DB empty tube 4");
-                    }
-                    states.tube4 = true;
-                    checkIT();
-                });
-            }
-            else{
-                socketServ.sockets.emit("mysql_error",{});
-            }
-            connection.release();
-        });
-        function checkIT(){
-            if(states.tube1 && states.tube2 && states.tube3 && states.tube4 && needSend){ //если где то не пусто запускаем репликатор
-                console.log("data need send");
-                replicator();
-            }
-            if(states.tube1 && states.tube2 && states.tube3 && states.tube4 && !needSend){ //если нет данных но стек закончен сбрасываем флаги
-                console.log("data NOT need send");
-            }
-            if(states.tube1 && states.tube2 && states.tube3 && states.tube4){ //если нет данных но стек закончен сбрасываем флаги
-                states.tube1 = false;
-                states.tube2 = false;
-                states.tube3 = false;
-                states.tube4 = false;
-                console.log("reset flags");
-            }
-            
-        };
-    }
-};
-function replicator(){
-    var cont = {
-        tube1:undefined,
-        tube2:undefined,
-        tube3:undefined,
-        tube4:undefined,
-    };
-    pool.getConnection(function(err, connection) {
-        if(!err && socketCl){
-            var tmpReplQuery = "";
-            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube1_dump` ORDER BY `id` ASC LIMIT 1000'; 
-            connection.query(tmpReplQuery,function(err,data,row){
-                if(data.length>0){
-                    cont.tube1 = data;
-                    if(!Global.sendLock && !Global.freeLock){
-                        Global.sendLock = true;
-                        if(socketCl){
-                            socketCl.emit("replica",cont);
-                        }
-                    }else{
-                        console.log("SEND LOCK tube 1 freelock:"+Global.freeLock+" sendlock:"+Global.sendLock);
-                        Global.SendQuery = true;
-                    }      
-                    cont.tube1 = null;
-                }                
-            });
-            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube2_dump` ORDER BY `id` ASC LIMIT 1000'; 
-            connection.query(tmpReplQuery,function(err,data,row){
-                if(data.length>0){
-                    cont.tube2 = data;
-                    if(!Global.sendLock && !Global.freeLock){
-                        Global.sendLock = true;
-                        if(socketCl){
-                            socketCl.emit("replica",cont); 
-                        }
-                    }else{
-                        console.log("SEND LOCK tube 2 freelock:"+Global.freeLock+" sendlock:"+Global.sendLock);
-                        Global.SendQuery = true;
-                    }        
-                    cont.tube2 = null;
-                }                
-            });
-            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube3_dump` ORDER BY `id` ASC LIMIT 1000'; 
-            connection.query(tmpReplQuery,function(err,data,row){
-                if(data.length){
-                    cont.tube3 = data;
-                    if(!Global.sendLock && !Global.freeLock){
-                        Global.sendLock = true;
-                        if(socketCl){
-                            socketCl.emit("replica",cont);  
-                        }
-                    }else{
-                        console.log("SEND LOCK tube 3 freelock:"+Global.freeLock+" sendlock:"+Global.sendLock);
-                        Global.SendQuery = true;
-                    }         
-                    cont.tube3 = null;
-                }
-            });
-            tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube4_dump` ORDER BY `id` ASC LIMIT 1000'; 
-            connection.query(tmpReplQuery,function(err,data,row){
-                if(data.length){
-                    cont.tube4 = data;
-                    if(!Global.sendLock && !Global.freeLock){
-                        Global.sendLock = true;
-                        if(socketCl){ 
-                            socketCl.emit("replica",cont); 
-                        }
-                    }else{
-                        console.log("SEND LOCK tube 4 freelock:"+Global.freeLock+" sendlock:"+Global.sendLock);
-                        Global.SendQuery = true;
-                    }          
-                    cont.tube4 = null;
-                }
-            });
-        }else{
-            socketServ.sockets.emit("mysql_error",{});
-        }
-        connection.release();
-    });
+		var generator = prohod();
+		var resultGen = generator.next();
+		while(!resultGen.done){
+			console.log("generator:"+util.inspect(resultGen,{colors:true}));
+			console.log("Вешаем then");
+			resultGen.value.then(
+				function(value){
+					console.log("promise end:"+util.inspect(value,{colors:true}));
+					if(value.len){
+						console.log("set replicator for tube:"+value.tube);
+						replicator(value.tube);
+					}else{
+						Global.WDT.arm();
+					}
+				},function(err){
+					console.error(err);
+				});
+			resultGen = generator.next();
+		}
+	}
+}
+function replicator(tube){
+	if(tube){
+		var cont = {
+			["tube"+tube]:undefined
+		};
+		pool.getConnection(function(err, connection) {
+			if(!err && socketCl){
+				var tmpReplQuery = "";
+				tmpReplQuery = 'SELECT *, DATE_FORMAT(`datetime`,"%s") AS `sec`, DATE_FORMAT(`datetime`,"%i") AS `min` FROM `tube'+tube+'_dump` ORDER BY `id` ASC LIMIT 1000'; 
+				connection.query(tmpReplQuery,function(err,data,row){
+					if(data.length && socketCl){
+						cont["tube"+tube] = data;
+						Global.WDT.arm();
+						console.log("send replica for tube:"+tube);
+						//console.log(util.inspect(cont,{colors:true}));
+						socketCl.emit("replica",cont);
+						cont = {};
+					}else if(!data.length){
+						Global.WDT.arm();
+					}                
+				});
+			}else{
+				socketServ.sockets.emit("mysql_error",{});
+			}
+			connection.release();
+		});
+	}
 };
 function freenerDB(lid,tube){
-    Global.freeLock = true;
     pool.getConnection(function(err, connection) {
         if(!err){
             var tmpReplQuery = "";
             tmpReplQuery = 'DELETE FROM `tube'+tube+'_dump` WHERE `utc`<='+lid; 
-            //console.log(tmpReplQuery);
             connection.query(tmpReplQuery,function(err,data,row){
                 if(err){
                     socketServ.sockets.emit("mysql_error",{});
                 }else{
                     console.log("data free where utc < "+lid+"  on tube:"+tube);
-                    //replica may be
-                    //socketCl.emit("free_free",{});
-                    Global.freeLock = false;
-                    Global.sendLock = false;
-                    checkDB();
+					Global.WDT.disarm();
+					replicator(tube);
                 }
             });
         }else{
             console.log("freener ERROR");
             socketServ.sockets.emit("mysql_error",{});
-            socketCl.emit("free_free",{});
-            Global.freeLock = false;
         }
         connection.release();
     });
 };
 
-//***********************SERVER*************************
+//---------SERVER----------
 
 socketServ.on("connection",function(socket){
     console.log("client Front End connected");
 });
 
 
-//***********************OPC****************************
+//---------OPC--------------
 
 var client = modbus.client.tcp.complete({ 
         'host'              : "10.210.30.214", 
         'port'              : "502",
         'autoReconnect'     : true,
-        'reconnectTimeout'  : 1000,
-        'timeout'           : 500,
+        'reconnectTimeout'  : 10000,
+        'timeout'           : 5000,
         'unitId'            : 0
     });
 //-------------------------POOL--------------------------
