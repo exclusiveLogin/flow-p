@@ -1,0 +1,63 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/serenity/.nvm/versions/node/v6.3.1/bin/node',
+1 verbose cli   '/home/serenity/.nvm/versions/node/v6.3.1/bin/npm',
+1 verbose cli   'search',
+1 verbose cli   'pm2' ]
+2 info using npm@3.10.3
+3 info using node@v6.3.1
+4 silly mapToRegistry name -/all
+5 silly mapToRegistry using default registry
+6 silly mapToRegistry registry https://registry.npmjs.org/
+7 silly mapToRegistry data Result {
+7 silly mapToRegistry   raw: '-/all',
+7 silly mapToRegistry   scope: null,
+7 silly mapToRegistry   escapedName: null,
+7 silly mapToRegistry   name: null,
+7 silly mapToRegistry   rawSpec: '-/all',
+7 silly mapToRegistry   spec: '-/all',
+7 silly mapToRegistry   type: 'local' }
+8 silly mapToRegistry uri https://registry.npmjs.org/-/all
+9 info updateIndex /home/serenity/.npm/registry.npmjs.org/-/all/.cache.json
+10 verbose correctMkdir /home/serenity/.npm correctMkdir not in flight; initializing
+11 warn Building the local index for the first time, please be patient
+12 silly update-index fetching https://registry.npmjs.org/-/all
+13 verbose request uri https://registry.npmjs.org/-/all
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 14:23:24
+16 verbose request using bearer token for auth
+17 verbose request id 72b5bbec0c314d14
+18 http request GET https://registry.npmjs.org/-/all
+19 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=write EPROTO 139787840390976:error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol:../deps/openssl/openssl/ssl/s23_clnt.c:794:
+20 info attempt registry request try #2 at 14:23:34
+21 verbose request using bearer token for auth
+22 http request GET https://registry.npmjs.org/-/all
+23 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=write EPROTO 139787840390976:error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol:../deps/openssl/openssl/ssl/s23_clnt.c:794:
+24 info attempt registry request try #3 at 14:24:34
+25 verbose request using bearer token for auth
+26 http request GET https://registry.npmjs.org/-/all
+27 verbose stack Error: tunneling socket could not be established, cause=write EPROTO 139787840390976:error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol:../deps/openssl/openssl/ssl/s23_clnt.c:794:
+27 verbose stack
+27 verbose stack     at ClientRequest.onError (/home/serenity/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/request/node_modules/tunnel-agent/index.js:176:17)
+27 verbose stack     at ClientRequest.g (events.js:286:16)
+27 verbose stack     at emitOne (events.js:96:13)
+27 verbose stack     at ClientRequest.emit (events.js:188:7)
+27 verbose stack     at TLSSocket.socketErrorListener (_http_client.js:308:9)
+27 verbose stack     at emitOne (events.js:96:13)
+27 verbose stack     at TLSSocket.emit (events.js:188:7)
+27 verbose stack     at onwriteError (_stream_writable.js:319:10)
+27 verbose stack     at onwrite (_stream_writable.js:337:5)
+27 verbose stack     at WritableState.onwrite (_stream_writable.js:89:5)
+28 verbose cwd /var/www/html
+29 error Linux 4.4.0-93-generic
+30 error argv "/home/serenity/.nvm/versions/node/v6.3.1/bin/node" "/home/serenity/.nvm/versions/node/v6.3.1/bin/npm" "search" "pm2"
+31 error node v6.3.1
+32 error npm  v3.10.3
+33 error code ECONNRESET
+34 error network tunneling socket could not be established, cause=write EPROTO 139787840390976:error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol:../deps/openssl/openssl/ssl/s23_clnt.c:794:
+35 error network This is most likely not a problem with npm itself
+35 error network and is related to network connectivity.
+35 error network In most cases you are behind a proxy or have bad network settings.
+35 error network
+35 error network If you are behind a proxy, please make sure that the
+35 error network 'proxy' config is set properly.  See: 'npm help config'
+36 verbose exit [ 1, true ]

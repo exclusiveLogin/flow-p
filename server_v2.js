@@ -195,6 +195,8 @@ function checkDB(){
 						console.log("set replicator for tube:"+value.tube);
 						replicator(value.tube);
 					}else{
+						console.log("table is empty now in tube:"+value.tube);
+						socketCl.emit("empty_tube",{"tube":value.tube});
 						Global.WDT.arm();
 					}
 				},function(err){
