@@ -224,7 +224,7 @@ function replicator(tube){
 						socketCl.emit("replica",cont);
 						cont = {};
 					}else if(!data.length){
-						Global.WDT.arm();
+						Global.WDT.arm(30000);
 					}                
 				});
 			}else{
