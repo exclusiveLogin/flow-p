@@ -197,7 +197,7 @@ $(document).ready(function(){
         credits:{enabled:false},
         chart: {
             //animation:false,
-            height:250,
+            height:150,
             renderTo:Global.trend1Container,            
         },
         title: {
@@ -242,7 +242,7 @@ $(document).ready(function(){
     var Trend_rt_setting2 = {
         credits:{enabled:false},
         chart: {
-            height:250,
+            height:150,
             renderTo:Global.trend2Container,            
         },
         title: {
@@ -285,7 +285,7 @@ $(document).ready(function(){
     var Trend_rt_setting3 = {
         credits:{enabled:false},
         chart: {
-            height:250,
+            height:150,
             renderTo:Global.trend3Container,            
         },
         title: {
@@ -328,7 +328,7 @@ $(document).ready(function(){
     var Trend_rt_setting4 = {
         credits:{enabled:false},
         chart: {
-            height:250,
+            height:150,
             renderTo:Global.trend4Container,            
         },
         title: {

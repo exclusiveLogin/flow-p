@@ -35,9 +35,6 @@ body{
 #menu{
     margin-bottom: 10px;
 }
-small{
-    font-size: 50%;
-}
 .logo{
     margin-top: 15px;
     text-align: left;
@@ -276,11 +273,8 @@ a:hover{
 /*-------------------------------trends---------------------------*/
 .rt-trend{
     background-color: #4c4c4c;
-    border: 2px dotted red;
     color: white;
-    font-size: 200%;
     font-family: "Arial Black";
-    text-align: center;
 }
 .cont_panel{
     padding: 5px;
@@ -359,4 +353,20 @@ a:hover{
 }
 .res_title{
     font-size: 90%;
+}
+/*progress bar override*/
+.progress{
+    height: 5px;
+}
+#rt_trend_heap{
+    font-weight: normal;
+    color: orange;
+    text-align: center;
+}
+
+#rt_trend_heap .val{
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: white;
+    transition: all 0.2s ease;
 }
